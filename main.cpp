@@ -11,8 +11,9 @@ int main( int nbArgs, char *tabArgs[] ) {
     Affichage monAffichage( atoi( tabArgs[1] ), atoi( tabArgs[2] ) );
     Controller monControleur( monAffichage );
     cout << "Demarrage du controleur..." << endl;
-    monControleur.start();
+    monControleur.Start();
 
-    cout << endl << "Fin du programme..." << endl;
+    cout << endl << "Fin du programme, appuyez sur Entree pour quitter..." << endl;
+    getch();
     return 0;
 }

@@ -1,18 +1,22 @@
 #ifndef WORLD_H
 #define WORLD_H
-#include <vector>
+
 #include <iostream>
-#include "Elements.h"
+#include <vector>
+#include <map>
 using namespace std;
 
-class World
-{
+#include "Element.h"
+
+class World {
     public:
         World();
         virtual ~World();
-    protected:
+        vector <Element> *getVectorElement();
+
     private:
-        vector <Elements> vElem;
+        vector <Element> vectorElement;
+        std::map <int, int> mapWorld;
 };
 
 #endif // WORLD_H

@@ -71,3 +71,26 @@ void Affichage::hexagonToSize( int *pPosX, int *pPosY ) {
     *pPosX *= 2;
     *pPosY *= 2;
 }
+
+void Affichage::printAtPosition( int pSizeX, int pSizeY, char pLetter ) {
+    int formerX, formerY;
+    formerX = wherex();
+    formerY = wherey();
+
+    gotoxy( pSizeX, pSizeY );
+    cout << pLetter;
+
+// Set the cursor at its former position
+    gotoxy( formerX, formerY );
+}
+
+void Affichage::clearInputZone() {
+// Set the cursor at the end of the grid
+    gotoxy( 0, sizeY );
+    int i;
+    for ( i = 0 ; i <= 100 ; i++ ) {
+        cout << " ";
+    }
+
+    gotoxy( 0, sizeY );
+}

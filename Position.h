@@ -1,15 +1,18 @@
 #ifndef POSITION_H
 #define POSITION_H
 
+#define POSITION_UNDEFINED -1
 
-class Position
-{
+class Position {
     public:
         /** Default constructor */
         Position();
         /** Access posX
          * \return The current value of posX
          */
+         /** Parameterized constructor */
+        Position( int, int );
+
         int GetposX() { return posX; }
         /** Set posX
          * \param val New value to set
@@ -23,7 +26,7 @@ class Position
          * \param val New value to set
          */
         void SetposY(int val) { posY = val; }
-    protected:
+
     private:
         int posX; //!< Member variable "posX"
         int posY; //!< Member variable "posY"

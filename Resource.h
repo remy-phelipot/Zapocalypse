@@ -1,10 +1,10 @@
 #ifndef RESOURCE_H
 #define RESOURCE_H
 
-#include "Elements.h"
+#include "Element.h"
 
 
-class Resource : public Elements
+class Resource : public Element
 {
     public:
         Resource();

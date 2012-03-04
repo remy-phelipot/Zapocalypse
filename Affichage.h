@@ -20,6 +20,10 @@ class Affichage {
         void printGrid();
 // hexagonToSize : convert the coordinates from Hexagon to Console screen
         void hexagonToSize( int *, int * );
+// printAtPosition : print the letter of an element in the grid
+        void printAtPosition( int, int, char );
+// Clear the input zone and move the cursor at the end of the grid
+        void clearInputZone();
 };
 
 #endif
