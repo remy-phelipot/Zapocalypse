@@ -5,17 +5,29 @@
 Controller::Controller( Affichage::Affichage &pAffConsole ) {
     affConsole = &pAffConsole;
     myVWorld = new World();
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> d117a2ef2198ac9aeae205ab3bdb81d3a0894d4d
 }
 
 void Controller::Start() {
     affConsole -> printGrid();
 
+<<<<<<< HEAD
 // Initialise default population
     for ( int i = 0 ; i <= TEST_HUMAN_NUMBER - 1 ; i++ ) {
 // Creates random coordinates for the new element
         Element *humanTest = new Human( 0, 0 );
         myVWorld -> push_back( humanTest );
     }
+=======
+    Element *humanTest = new Human( 10, 10 );
+    myVWorld -> push_back( humanTest );
+
+    affConsole -> printAtPosition( humanTest -> getMyPosition().GetposX(), humanTest -> getMyPosition().GetposY(), humanTest -> getImage() );
+>>>>>>> d117a2ef2198ac9aeae205ab3bdb81d3a0894d4d
 
 // Prompt confirmation message
     cout << "End of game initialisation, press key to play..." << endl;
