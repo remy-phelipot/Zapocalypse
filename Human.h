@@ -4,11 +4,11 @@
 #include<iostream>
 using namespace std;
 
-#include "Element.h"
+#include "Mobile.h"
 
 #define HUMAN_IMAGE 'H'
 
-class Human : public Element {
+class Human : public Mobile {
     public:
         Human();
         Human( int, int );

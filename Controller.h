@@ -6,6 +6,8 @@
 #include "World.h"
 #include "Human.h"
 
+#define TEST_HUMAN_NUMBER 2
+
 class Controller {
     public:
 // Construct the controller
@@ -14,11 +16,12 @@ class Controller {
         void Start();
 // Allow the user to play the game
         void Play();
+// Variable used to stop the thread
+        bool playNow;
 
     private:
-        World *myWorld;
+        World *myVWorld;
         Affichage *affConsole;
-        vector <Element*> *myVElement;
 };
 
 #endif

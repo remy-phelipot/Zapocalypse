@@ -6,7 +6,7 @@ Affichage::Affichage( int pNbHexagonX, int pNbHexagonY ) {
 
 // Convert the number of hexagon into the number of characters
     sizeX = pNbHexagonX * 2;
-    sizeY = pNbHexagonY * 2;
+    sizeY = pNbHexagonY;
 
 // Set console parameters
     system( "TITLE Zapocalypse v0.01 Alpha" );
@@ -24,21 +24,21 @@ void Affichage::printGrid() {
     for ( j = 0 ; j <= sizeY ; j++ ) {
         for ( i = 0 ; i <= sizeX ; i = i + 2 ) {
             gotoxy( i, j );
-// Two different king of lines
+            // Two different kind of lines
             if ( j % 2 == 0 ) {
                 if ( i % 4 == 0 ) {
-                    cout << "\\_";
+                    cout << "/ ";
                 }
                 else {
-                    cout << "/ ";
+                    cout << "\\_";
                 }
             }
             else {
                 if ( i % 4 == 0 ) {
-                    cout << "/ ";
+                    cout << "\\_";
                 }
                 else {
-                    cout << "\\_";
+                    cout << "/ ";
                 }
             }
         }
@@ -52,30 +52,27 @@ void Affichage::printGrid() {
 
 // Clear the corners of the grid
     if ( nbHexagonX % 2 == 0 ) {
-        gotoxy( sizeX, sizeY );
-        cout << " ";
-    }
-    else {
         gotoxy( sizeX, 0 );
         cout << " ";
+        gotoxy( 0, sizeY );
+        cout << " ";
     }
 
-    gotoxy( 0, 0 );
-    cout << " ";
-
 // Set the cursor at the end of the grid
-    gotoxy( 0, sizeY );
+    gotoxy( 0, sizeY + 1 );
 }
 
 void Affichage::hexagonToSize( int *pPosX, int *pPosY ) {
-    *pPosX *= 2;
-    *pPosY *= 2;
+    *pPosX *= 2 + 2;
+    *pPosY *= 2 + 2;
 }
 
 void Affichage::printAtPosition( int pSizeX, int pSizeY, char pLetter ) {
     int formerX, formerY;
     formerX = wherex();
     formerY = wherey();
+
+    hexagonToSize( &pSizeX, &pSizeY );
 
     gotoxy( pSizeX, pSizeY );
     cout << pLetter;
@@ -86,7 +83,7 @@ void Affichage::printAtPosition( int pSizeX, int pSizeY, char pLetter ) {
 
 void Affichage::clearInputZone() {
 // Set the cursor at the end of the grid
-    gotoxy( 0, sizeY );
+    gotoxy( 0, sizeY + 1 );
     int i;
     for ( i = 0 ; i <= 100 ; i++ ) {
         cout << " ";

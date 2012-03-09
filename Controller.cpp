@@ -4,17 +4,18 @@
 
 Controller::Controller( Affichage::Affichage &pAffConsole ) {
     affConsole = &pAffConsole;
-    myWorld = new World();
-    myVElement = myWorld -> getVectorElement();
+    myVWorld = new World();
 }
 
 void Controller::Start() {
     affConsole -> printGrid();
 
-    Element *humanTest = new Human( 10, 10 );
-    myVElement -> push_back( humanTest );
-
-    affConsole -> printAtPosition( humanTest -> getMyPosition().GetposX(), humanTest -> getMyPosition().GetposY(), humanTest -> getImage() );
+// Initialise default population
+    for ( int i = 0 ; i <= TEST_HUMAN_NUMBER - 1 ; i++ ) {
+// Creates random coordinates for the new element
+        Element *humanTest = new Human( 0, 0 );
+        myVWorld -> push_back( humanTest );
+    }
 
 // Prompt confirmation message
     cout << "End of game initialisation, press key to play..." << endl;
@@ -39,8 +40,8 @@ void Controller::Play() {
 
         if ( pressedKey != 'Q' ) {
 // For each element in the vector, call the Action method
-            for ( i = 0 ; i <= ( myVElement -> size() - 1 ) ; i++ ) {
-                myVElement -> at( i ) -> Action();
+            for ( i = 0 ; i <= ( myVWorld -> size() - 1 ) ; i++ ) {
+                myVWorld -> at( i ) -> Action();
                 cout << "Press a key to go to the next element" << endl;
                 getch();
             }
@@ -49,10 +50,10 @@ void Controller::Play() {
 // Print the grid
             affConsole -> printGrid();
 // Browse the Vector to print each element at its new position
-            for ( i = 0 ; i <= ( myVElement -> size() - 1 ) ; i++ ) {
-                valX = myVElement -> at( i ) -> getMyPosition().GetposX();
-                valY = myVElement -> at( i ) -> getMyPosition().GetposY();
-                affConsole -> printAtPosition( valX, valY, myVElement -> at( i ) -> getImage() );
+            for ( i = 0 ; i <= ( myVWorld -> size() - 1 ) ; i++ ) {
+                valX = myVWorld -> at( i ) -> getMyPosition().GetposX();
+                valY = myVWorld -> at( i ) -> getMyPosition().GetposY();
+                affConsole -> printAtPosition( valX, valY, myVWorld -> at( i ) -> getImage() );
             }
         }
     } while ( pressedKey != 'Q' );

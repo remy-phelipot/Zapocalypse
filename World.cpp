@@ -9,7 +9,3 @@ World::~World()
 {
     //dtor
 }
-
-vector <Element*> *World::getVectorElement() {
-    return &vectorElement;
-}

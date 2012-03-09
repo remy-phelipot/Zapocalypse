@@ -5,7 +5,7 @@ Human::Human() {
 }
 
 Human::Human( int pPosX, int pPosY ) :
-Element( pPosX, pPosY ) {
+Mobile( pPosX, pPosY ) {
     initHuman();
 }
 
@@ -15,9 +15,10 @@ void Human::initHuman () {
     name = "BasicHuman";
     health = 100;
     age = 0;
-// Random vision
-    vision = 1;
-    movRange = 1;
+// Random visionRange
+    SetvisionRange( 1 );
+// Random moveRange
+    SetmoveRange( 1 );
     isChild = true;
     lifeExpectancy = 75;
     isContaminated = false;
@@ -30,8 +31,7 @@ void Human::initHuman () {
 
 bool Human::Action() {
     cout << "Human basic action, moving..." << endl;
-    setMyPosition( getMyPosition().GetposX() + 1, getMyPosition().GetposY() + 1 );
-
+    MoveObject();
 // No problem
     return true;
 // If there is a problem, return false and delete the element (fail)

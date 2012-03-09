@@ -8,11 +8,10 @@ using namespace std;
 
 #include "Element.h"
 
-class World {
+class World : public vector <Element*> {
     public:
         World();
         virtual ~World();
-        vector <Element*> *getVectorElement();
 
     private:
         vector <Element*> vectorElement;
