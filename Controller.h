@@ -16,9 +16,8 @@ class Controller {
         void Play();
 
     private:
-        World *myWorld;
+        World *myVWorld;
         Affichage *affConsole;
-        vector <Element*> *myVElement;
 };
 
 #endif

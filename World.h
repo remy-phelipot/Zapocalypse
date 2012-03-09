@@ -4,19 +4,19 @@
 #include <iostream>
 #include <vector>
 #include <map>
+
 using namespace std;
 
+#include "Position.h"
 #include "Element.h"
 
-class World {
+class World : public vector<Element*> {
     public:
         World();
         virtual ~World();
-        vector <Element*> *getVectorElement();
 
     private:
-        vector <Element*> vectorElement;
-        std::map <int, int> mapWorld;
+        std::map <Position, unsigned> mapWorld;
 };
 
 #endif // WORLD_H

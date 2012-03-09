@@ -2,7 +2,7 @@
 
 World::World()
 {
-    //ctor
+
 }
 
 World::~World()
@@ -10,6 +10,3 @@ World::~World()
     //dtor
 }
 
-vector <Element*> *World::getVectorElement() {
-    return &vectorElement;
-}
