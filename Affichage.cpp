@@ -5,11 +5,7 @@ Affichage::Affichage( int pNbHexagonX, int pNbHexagonY ) {
     nbHexagonY = pNbHexagonY;
 
 // Convert the number of hexagon into the number of characters
-<<<<<<< HEAD
     sizeX = pNbHexagonX * 2;
-=======
-    sizeX = pNbHexagonX * 2 ;
->>>>>>> d117a2ef2198ac9aeae205ab3bdb81d3a0894d4d
     sizeY = pNbHexagonY;
 
 // Set console parameters
