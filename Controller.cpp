@@ -8,13 +8,32 @@ Controller::Controller( Affichage::Affichage &pAffConsole ) {
 }
 
 void Controller::Start() {
+    int i;
+    int valX, valY;
     affConsole -> printGrid();
 
 // Initialise default population
     for ( int i = 0 ; i <= TEST_HUMAN_NUMBER - 1 ; i++ ) {
 // Creates random coordinates for the new element
-        Element *humanTest = new Human( 0, 0 );
+        valX = (rand() % ( affConsole->getSizeX() - 0 ) + 1);
+        valY = (rand() % ( affConsole->getSizeY() - 0 ) + 1);
+
+        if ( valX % 2 == 0 && valY % 2 == 1 ) {
+            valY++;
+        }
+        if ( valX % 2 == 1 && valY % 2 == 0 ) {
+            valY--;
+        }
+
+        Element *humanTest = new Human( valX, valY );
         myVWorld -> push_back( humanTest );
+    }
+
+// Browse the Vector to print each element at its new position
+    for ( i = 0 ; i <= ( myVWorld -> size() - 1 ) ; i++ ) {
+        valX = myVWorld -> at( i ) -> getMyPosition().GetposX();
+        valY = myVWorld -> at( i ) -> getMyPosition().GetposY();
+        affConsole -> printAtPosition( valX, valY, myVWorld -> at( i ) -> getImage() );
     }
 
 // Prompt confirmation message

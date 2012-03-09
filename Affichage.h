@@ -24,6 +24,9 @@ class Affichage {
         void printAtPosition( int, int, char );
 // Clear the input zone and move the cursor at the end of the grid
         void clearInputZone();
+
+        int getSizeX();
+        int getSizeY();
 };
 
 #endif

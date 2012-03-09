@@ -63,8 +63,8 @@ void Affichage::printGrid() {
 }
 
 void Affichage::hexagonToSize( int *pPosX, int *pPosY ) {
-    *pPosX *= 2 + 2;
-    *pPosY *= 2 + 2;
+    *pPosX += 1;
+    *pPosY += 1;
 }
 
 void Affichage::printAtPosition( int pSizeX, int pSizeY, char pLetter ) {
@@ -90,4 +90,14 @@ void Affichage::clearInputZone() {
     }
 
     gotoxy( 0, sizeY + 1 );
+}
+
+int Affichage::getSizeX()
+{
+    return sizeX;
+}
+
+int Affichage::getSizeY()
+{
+    return sizeY;
 }
