@@ -11,14 +11,16 @@ using namespace std;
 
 #include "Position.h"
 #include "Element.h"
+#include "Human.h"
 
 // Number of humans to test the game
 #define TEST_HUMAN_NUMBER 5
 
 class World : public vector <Element*> {
     public:
-        World();
-        Position newCoordinates( int, int );
+        World( int, int );
+        Position newCoordinates();
+        void PlayTurn();
 
     private:
         map <Position, unsigned> mapWorld;

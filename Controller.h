@@ -2,6 +2,7 @@
 #define CONTROLLER_H
 
 #include <cstdlib>
+#include <cstdio>
 
 #include "Affichage.h"
 #include "World.h"
@@ -21,7 +22,7 @@ class Controller {
 // Start the controller, initialise the window
         void Start();
 // Initialise the World
-        void InitialiseWorld( int, int )
+        void InitialiseWorld( int, int );
 // Play the game until stopped
         void Play();
 // Variable used to stop the thread/play turn loop

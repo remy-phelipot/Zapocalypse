@@ -5,8 +5,8 @@ Affichage::Affichage() {
     nbHexagonY = DEFAULT_NB_HEXAGON_Y;
 
 // Convert the number of hexagon into the number of characters
-    sizeX = pNbHexagonX * 2;
-    sizeY = pNbHexagonY;
+    sizeX = nbHexagonX * 2;
+    sizeY = nbHexagonY;
 
 // Set console parameters
     system( "TITLE Zapocalypse v0.01 Alpha" );
@@ -91,7 +91,7 @@ void Affichage::printAtPosition( int pSizeX, int pSizeY, char pLetter ) {
 // Set the cursor at its former position
     gotoxy( formerX, formerY );
 }
-
+/*
 void Affichage::clearInputZone() {
 // Set the cursor at the end of the grid
     gotoxy( 0, sizeY + 1 );
@@ -102,13 +102,4 @@ void Affichage::clearInputZone() {
 
     gotoxy( 0, sizeY + 1 );
 }
-
-int Affichage::getSizeX()
-{
-    return sizeX;
-}
-
-int Affichage::getSizeY()
-{
-    return sizeY;
-}
+*/

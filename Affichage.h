@@ -18,6 +18,7 @@ class Affichage {
         int nbHexagonY;
 
     public:
+        Affichage();
         Affichage( int, int );
 
 // printGrid : print the grid on the console
@@ -27,10 +28,7 @@ class Affichage {
 // printAtPosition : print the letter of an element in the grid
         void printAtPosition( int, int, char );
 // Clear the input zone and move the cursor at the end of the grid
-        void clearInputZone();
-
-        int getSizeX();
-        int getSizeY();
+        //void clearInputZone();
 };
 
 #endif

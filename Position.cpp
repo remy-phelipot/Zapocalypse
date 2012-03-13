@@ -9,6 +9,7 @@ Position::Position( int pPosX, int pPosY ) {
     posX = pPosX;
     posY = pPosY;
 }
+
 /*
 Position less ( const Position &other ) {
     if ( posX < other.GetposX() ) {
