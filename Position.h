@@ -27,6 +27,9 @@ class Position {
          */
         void SetposY(int val) { posY = val; }
 
+// Redefined the comparison operators
+
+
     private:
         int posX; //!< Member variable "posX"
         int posY; //!< Member variable "posY"

@@ -2,30 +2,30 @@
 
 #include "Controller.h"
 
-Controller::Controller( Affichage::Affichage &pAffConsole ) {
-    affConsole = &pAffConsole;
+Controller::Controller() {
+// Init rand
+    srand( time( NULL ) );
+
+    affConsole = NULL;
     myVWorld = new World();
 }
 
-void Controller::Start() {
-    int i;
+void Controller::Start( int pNbHexagonX, int pNbHexagonY ) {
+// Create window
+    affConsole = new Affichage( pNbHexagonX, pNbHexagonY );
+    sizeX = pNbHexagonX;
+    sizeY = pNbHexagonY;
+
+    unsigned int i;
     int valX, valY;
+    Position tmpPosition;
     affConsole -> printGrid();
 
 // Initialise default population
     for ( int i = 0 ; i <= TEST_HUMAN_NUMBER - 1 ; i++ ) {
 // Creates random coordinates for the new element
-        valX = (rand() % ( affConsole->getSizeX() - 0 ) + 1);
-        valY = (rand() % ( affConsole->getSizeY() - 0 ) + 1);
-
-        if ( valX % 2 == 0 && valY % 2 == 1 ) {
-            valY++;
-        }
-        if ( valX % 2 == 1 && valY % 2 == 0 ) {
-            valY--;
-        }
-
-        Element *humanTest = new Human( valX, valY );
+        tmpPosition = myVWorld -> newCoordinates( sizeX, sizeY );
+        Element *humanTest = new Human( tmpPosition.GetposX(), tmpPosition.GetposY() );
         myVWorld -> push_back( humanTest );
     }
 

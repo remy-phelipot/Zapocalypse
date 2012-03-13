@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <vector>
+#include <ctime>
+#include <cstdlib>
 #include <map>
 
 using namespace std;
@@ -10,14 +12,13 @@ using namespace std;
 #include "Position.h"
 #include "Element.h"
 
-
 class World : public vector <Element*> {
     public:
         World();
-        virtual ~World();
+        Position newCoordinates( int, int );
 
     private:
-        std::map <Position, unsigned> mapWorld;
+        map <Position, unsigned> mapWorld;
 };
 
 #endif // WORLD_H

@@ -63,8 +63,7 @@ void Affichage::printGrid() {
 }
 
 void Affichage::hexagonToSize( int *pPosX, int *pPosY ) {
-    *pPosX += 1;
-    *pPosY += 1;
+        *pPosX = ( *pPosX * 2 ) + 1;
 }
 
 void Affichage::printAtPosition( int pSizeX, int pSizeY, char pLetter ) {
