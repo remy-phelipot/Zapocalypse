@@ -4,31 +4,28 @@
 #include <cstdlib>
 
 #include "Affichage.h"
-#include "Element.h"
 #include "World.h"
-#include "Human.h"
-#include "Position.h"
-
-#define TEST_HUMAN_NUMBER 2
 
 class Controller {
     private:
-// Pointer to the World
-        World *myVWorld;
-// Pointer to the window
-        Affichage *affConsole;
-// Map size, hexagon number
-        int sizeX, sizeY;
+// Pointer to my World
+        World *myWorld;
+// Pointer to my window
+        Affichage *myWindow;
+// Map size, number of hexagon
+        int nbHexagonX, nbHexagonY;
 
     public:
 // Construct the controller
         Controller();
-// Start the controller, initialise the game and window
-        void Start( int, int );
-// Allow the user to play the game
+// Start the controller, initialise the window
+        void Start();
+// Initialise the World
+        void InitialiseWorld( int, int )
+// Play the game until stopped
         void Play();
-// Variable used to stop the thread
-        bool playNow;
+// Variable used to stop the thread/play turn loop
+        bool playGame;
 };
 
 #endif

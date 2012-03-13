@@ -1,79 +1,41 @@
-#include <stdio.h>
-
 #include "Controller.h"
 
 Controller::Controller() {
 // Init rand
     srand( time( NULL ) );
 
+// Construct the new Controller
     affConsole = NULL;
-    myVWorld = new World();
+    myWorld = NULL;
 }
 
-void Controller::Start( int pNbHexagonX, int pNbHexagonY ) {
-// Create window
-    affConsole = new Affichage( pNbHexagonX, pNbHexagonY );
-    sizeX = pNbHexagonX;
-    sizeY = pNbHexagonY;
 
-    unsigned int i;
-    int valX, valY;
-    Position tmpPosition;
-    affConsole -> printGrid();
+void Controller::Start() {
+// Create the new window
+    affConsole = new Affichage();
 
-// Initialise default population
-    for ( int i = 0 ; i <= TEST_HUMAN_NUMBER - 1 ; i++ ) {
-// Creates random coordinates for the new element
-        tmpPosition = myVWorld -> newCoordinates( sizeX, sizeY );
-        Element *humanTest = new Human( tmpPosition.GetposX(), tmpPosition.GetposY() );
-        myVWorld -> push_back( humanTest );
-    }
+// When the new window is created, call the "InitialiseWorld" method
+// parameterized with the size of the map.
+/** Called right now, because no window **/
+    InitialiseWorld( DEFAULT_NB_HEXAGON_X, DEFAULT_NB_HEXAGON_Y );
+}
 
-// Browse the Vector to print each element at its new position
-    for ( i = 0 ; i <= ( myVWorld -> size() - 1 ) ; i++ ) {
-        valX = myVWorld -> at( i ) -> getMyPosition().GetposX();
-        valY = myVWorld -> at( i ) -> getMyPosition().GetposY();
-        affConsole -> printAtPosition( valX, valY, myVWorld -> at( i ) -> getImage() );
-    }
 
-// Prompt confirmation message
-    cout << "End of game initialisation, press key to play..." << endl;
-    fflush( stdin );
-    getch();
+void Controller::InitialiseWorld( int pNbHexagonX, int pNbHexagonY ) {
+    myWorld = new World( pNbHexagonX, pNbHexagonY );
 
+// Call the play function
+/** No Window **/
     Play();
 }
 
-void Controller::Play() {
+
+void Controller::Play( ) {
     char pressedKey = 0;
     unsigned int i = 0;
     int valX, valY;
 
     do {
-        affConsole -> clearInputZone();
-        cout << "Press a key to pass a turn (\'Q\' to exit)";
-        fflush( stdin );
-        pressedKey = getch();
-        fflush( stdin );
-        affConsole -> clearInputZone();
-
-        if ( pressedKey != 'Q' ) {
-// For each element in the vector, call the Action method
-            for ( i = 0 ; i <= ( myVWorld -> size() - 1 ) ; i++ ) {
-                myVWorld -> at( i ) -> Action();
-                cout << "Press a key to go to the next element" << endl;
-                getch();
-            }
-// Clear the screen
-            clrscr();
-// Print the grid
-            affConsole -> printGrid();
-// Browse the Vector to print each element at its new position
-            for ( i = 0 ; i <= ( myVWorld -> size() - 1 ) ; i++ ) {
-                valX = myVWorld -> at( i ) -> getMyPosition().GetposX();
-                valY = myVWorld -> at( i ) -> getMyPosition().GetposY();
-                affConsole -> printAtPosition( valX, valY, myVWorld -> at( i ) -> getImage() );
-            }
-        }
+        myVWorld -> PlayTurn();
     } while ( pressedKey != 'Q' );
 }

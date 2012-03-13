@@ -6,6 +6,10 @@ using namespace std;
 
 #include "econio.h"
 
+// Size of the World
+#define DEFAULT_NB_HEXAGON_X 20
+#define DEFAULT_NB_HEXAGON_Y 20
+
 class Affichage {
     private:
         int sizeX;

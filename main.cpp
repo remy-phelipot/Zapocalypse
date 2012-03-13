@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-#include "Affichage.h"
 #include "Controller.h"
 
 int main( int nbArgs, char *tabArgs[] ) {
@@ -11,7 +10,7 @@ int main( int nbArgs, char *tabArgs[] ) {
 // Start the controler
     Controller monControleur;
     cout << "Demarrage du controleur..." << endl;
-    monControleur.Start( atoi( tabArgs[1] ), atoi( tabArgs[2] ) );
+    monControleur.Start();
 
     cout << endl << "Fin du programme, appuyez sur Entree pour quitter..." << endl;
     getch();

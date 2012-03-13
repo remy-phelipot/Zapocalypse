@@ -1,5 +1,17 @@
 #include "Affichage.h"
 
+Affichage::Affichage() {
+    nbHexagonX = DEFAULT_NB_HEXAGON_X;
+    nbHexagonY = DEFAULT_NB_HEXAGON_Y;
+
+// Convert the number of hexagon into the number of characters
+    sizeX = pNbHexagonX * 2;
+    sizeY = pNbHexagonY;
+
+// Set console parameters
+    system( "TITLE Zapocalypse v0.01 Alpha" );
+}
+
 Affichage::Affichage( int pNbHexagonX, int pNbHexagonY ) {
     nbHexagonX = pNbHexagonX;
     nbHexagonY = pNbHexagonY;
