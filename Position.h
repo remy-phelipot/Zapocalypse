@@ -13,7 +13,7 @@ class Position {
          /** Parameterized constructor */
         Position( int, int );
 
-        int GetposX() { return posX; }
+        int GetposX() const { return posX; }
         /** Set posX
          * \param val New value to set
          */
@@ -21,12 +21,13 @@ class Position {
         /** Access posY
          * \return The current value of posY
          */
-        int GetposY() { return posY; }
+        int GetposY() const { return posY; }
         /** Set posY
          * \param val New value to set
          */
         void SetposY(int val) { posY = val; }
-
+// Compare with totally ordered relation
+        bool operator < ( const Position &pPos ) const;
 // Redefined the comparison operators
 
 

@@ -4,8 +4,8 @@ Human::Human() {
     initHuman();
 }
 
-Human::Human( int pPosX, int pPosY ) :
-Mobile( pPosX, pPosY ) {
+Human::Human( int pPosX, int pPosY, World *pMyWorld ) :
+Mobile( pPosX, pPosY, pMyWorld ) {
     initHuman();
 }
 

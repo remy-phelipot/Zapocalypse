@@ -21,6 +21,7 @@ class World : public vector <Element*> {
         World( int, int );
         Position newCoordinates();
         void PlayTurn();
+        map <Position, unsigned> *getMapWorld();
 
     private:
         map <Position, unsigned> mapWorld;

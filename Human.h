@@ -5,13 +5,14 @@
 using namespace std;
 
 #include "Mobile.h"
+#include "World.h"
 
 #define HUMAN_IMAGE 'H'
 
 class Human : public Mobile {
     public:
         Human();
-        Human( int, int );
+        Human( int, int, World * );
         void initHuman();
         bool Action();
 

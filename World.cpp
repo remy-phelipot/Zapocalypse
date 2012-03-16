@@ -11,8 +11,10 @@ World::World( int pNbHexagonX, int pNbHexagonY ) {
     for ( int i = 0 ; i <= TEST_HUMAN_NUMBER - 1 ; i++ ) {
 // Creates random coordinates for the new element
         tmpPosition = newCoordinates();
-        Element *initialHuman = new Human( tmpPosition.GetposX(), tmpPosition.GetposY() );
+        Element *initialHuman = new Human( tmpPosition.GetposX(), tmpPosition.GetposY(), this );
         push_back( initialHuman );
+// Add the new Position into the map
+        mapWorld[tmpPosition] = size() - 1;
     }
 }
 
@@ -22,6 +24,7 @@ Position World::newCoordinates() {
     int valX;
     int valY;
     bool valide = false;
+    Position newPosition( 0, 0 );
 
     while ( valide == false ) {
 // rand()%(b-a)+a
@@ -35,13 +38,16 @@ Position World::newCoordinates() {
         if ( valX % 2 == 1 && valY % 2 == 0 ) {
             valY--;
         }
+
+        newPosition = Position( valX, valY );
+
 // Check if the coordinates aren't already used in the map
-        valide = true;
+        if ( mapWorld.find( newPosition ) == mapWorld.end() ) {
+            valide = true;
+        }
     }
 
-    Position newPosition( valX, valY );
-// Add the new Position into the map
-    //mapWorld[newPosition] = 1;
+    //cout << "Nouvelle coordonnee X : " << newPosition.GetposX() << ", nouvelle coordonnee Y : " << newPosition.GetposY() << endl;
 
 // Return the new Position
     return newPosition;
@@ -53,4 +59,9 @@ void World::PlayTurn () {
     for ( unsigned int i = 0 ; i <= ( size() - 1 ) ; i++ ) {
         at( i ) -> Action();
     }
+}
+
+
+map <Position, unsigned> *World::getMapWorld() {
+    return &mapWorld;
 }

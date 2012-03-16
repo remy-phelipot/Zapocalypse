@@ -1,12 +1,15 @@
 #include "Mobile.h"
+#include "World.h"
 
 Mobile::Mobile()
 {
     //ctor
 }
 
-Mobile::Mobile( int pPosX, int pPosY ) :
-Element( pPosX, pPosY ) {}
+Mobile::Mobile( int pPosX, int pPosY, World *pMyWorld ) :
+Element( pPosX, pPosY ) {
+    myWorld=pMyWorld;
+}
 
 Mobile::~Mobile(){}
 
@@ -19,6 +22,7 @@ void Mobile::MoveObject() {
     discoverObject();
 
     int tmpPosX, tmpPosY;
+    Position tmpPos( 0, 0 );
 // Indicates if the new coordinates are valide
     bool valide = false;
 
@@ -72,15 +76,23 @@ void Mobile::MoveObject() {
                 break;
         }
 // Check if out of bounds
-        if ( tmpPosX < 20 && tmpPosX >= 0 && tmpPosY < 20 && tmpPosY >= 0 )
-            valide = true;
-
+        if ( tmpPosX < 20 && tmpPosX >= 0 && tmpPosY < 20 && tmpPosY >= 0 ) {
+            tmpPos = Position( tmpPosX, tmpPosY );
+            if ( myWorld -> getMapWorld() -> find( tmpPos ) == myWorld -> getMapWorld() -> end() ) {
 // Check if place is free (with map)
-
-
+                valide = true;
+            }
+        }
     }
+
+// Récuperer Index dans vecteur depuis Map, supprimer element map
+    tmpPos = Position( getMyPosition().GetposX(), getMyPosition().GetposY() );
+    int vectorIndex = myWorld -> getMapWorld() -> find( tmpPos ) -> second;
+    myWorld -> getMapWorld() -> erase( tmpPos );
 
 // Set the new position
     setMyPosition( tmpPosX, tmpPosY );
+    tmpPos = Position( getMyPosition().GetposX(), getMyPosition().GetposY() );
+    myWorld -> getMapWorld() -> insert( pair<Position, unsigned>(tmpPos, vectorIndex));
     cout << "Hexagon new coordinates: ( " << getMyPosition().GetposX() << ", " << getMyPosition().GetposY() << " )." << endl;
 }

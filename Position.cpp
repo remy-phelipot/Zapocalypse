@@ -10,19 +10,25 @@ Position::Position( int pPosX, int pPosY ) {
     posY = pPosY;
 }
 
-/*
-Position less ( const Position &other ) {
-    if ( posX < other.GetposX() ) {
+
+bool Position::operator < ( const Position &pPos ) const {
+    if ( posX < pPos.GetposX() ) {
         return true;
     }
-    else if ( posX < other.GetposX() )
-    return posX < ot
-    her.GetposX();
-
+    else {
+        if ( posX > pPos.GetposX() ) {
+            return false;
+        }
+        else {
+            if ( posY < pPos.GetposY() ) {
+                return true;
+            }
+            else {
+                if ( posY > pPos.GetposY() ) {
+                    return false;
+                }
+            }
+        }
+    }
+    return false;
 }
-
-inline bool operator<(const Foo& a, const Foo& b)
-{
-  return a.less(b);
-}
-*/
