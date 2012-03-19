@@ -25,6 +25,7 @@ void Mobile::MoveObject() {
     Position tmpPos( 0, 0 );
 // Indicates if the new coordinates are valide
     bool valide = false;
+    int i = 0;
 
 // If no objects were discovered, move the Mobile Element to a random position
 // Random direction number
@@ -39,7 +40,7 @@ void Mobile::MoveObject() {
 
  */
 
-    while ( valide == false ) {
+    while ( valide == false && i < 10 ) {
 // Random direction (1-6)
         int direction = rand() % ( 6 - 1 ) + 1;
 
@@ -83,16 +84,24 @@ void Mobile::MoveObject() {
                 valide = true;
             }
         }
+        i++;
     }
 
-// Récuperer Index dans vecteur depuis Map, supprimer element map
-    tmpPos = Position( getMyPosition().GetposX(), getMyPosition().GetposY() );
-    int vectorIndex = myWorld -> getMapWorld() -> find( tmpPos ) -> second;
-    myWorld -> getMapWorld() -> erase( tmpPos );
+    if ( valide == true ) {
+// Get the vector index into the map, save it and delete the element into the map
+        tmpPos = Position( getMyPosition().GetposX(), getMyPosition().GetposY() );
+        int vectorIndex = myWorld -> getMapWorld() -> find( tmpPos ) -> second;
+        myWorld -> getMapWorld() -> erase( tmpPos );
 
 // Set the new position
-    setMyPosition( tmpPosX, tmpPosY );
-    tmpPos = Position( getMyPosition().GetposX(), getMyPosition().GetposY() );
-    myWorld -> getMapWorld() -> insert( pair<Position, unsigned>(tmpPos, vectorIndex));
-    cout << "Hexagon new coordinates: ( " << getMyPosition().GetposX() << ", " << getMyPosition().GetposY() << " )." << endl;
+        setMyPosition( tmpPosX, tmpPosY );
+        tmpPos = Position( getMyPosition().GetposX(), getMyPosition().GetposY() );
+// Insert the new coordinates into the map
+        myWorld -> getMapWorld() -> insert( pair<Position, unsigned>(tmpPos, vectorIndex));
+        cout << "Hexagon new coordinates: ( " << getMyPosition().GetposX() << ", " << getMyPosition().GetposY() << " )." << endl;
+    }
+    else {
+        cout << "Can't move object..." << endl;
+        //Sleep( 3000 );
+    }
 }
