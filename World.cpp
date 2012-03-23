@@ -28,8 +28,8 @@ Position World::newCoordinates() {
 
     while ( valide == false ) {
 // rand()%(b-a)+a
-        valX = rand() % ( (nbHexagonX-1) - 0 ) + 0;
-        valY = rand() % ( (nbHexagonY-1) - 0 ) + 0;
+        valX = rand() % nbHexagonX;
+        valY = rand() % nbHexagonY;
 
         if ( valX % 2 == 0 && valY % 2 == 1 ) {
             valY++;

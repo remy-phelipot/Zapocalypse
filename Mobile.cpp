@@ -27,7 +27,7 @@ void Mobile::MoveObject() {
     bool valide = false;
     int i = 0;
 
-// If no objects were discovered, move the Mobile Element to a random position
+// If no objects were discovered, moves the Mobile Element to a random position
 // Random direction number
 /**
    _
@@ -42,7 +42,7 @@ void Mobile::MoveObject() {
 
     while ( valide == false && i < 10 ) {
 // Random direction (1-6)
-        int direction = rand() % ( 6 - 1 ) + 1;
+        int direction = rand() % 6  + 1;
 
         tmpPosX = getMyPosition().GetposX();
         tmpPosY = getMyPosition().GetposY();
