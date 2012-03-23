@@ -4,18 +4,19 @@
 #include <cstdlib>
 #include <cstdio>
 
-#include "Affichage.h"
 #include "World.h"
-
+#include "main_window.h"
+#include "thread_world.h"
 class Controller {
     private:
 // Pointer to my World
         World *myWorld;
 // Pointer to my window
-        Affichage *myWindow;
+        gui::Main_Window *myWindow;
 // Map size, number of hexagon
         int nbHexagonX, nbHexagonY;
 
+        Thread_World * threadWorld ;
     public:
 // Construct the controller
         Controller();
@@ -25,8 +26,11 @@ class Controller {
         void InitialiseWorld( int, int );
 // Play the game until stopped
         void Play();
-// Variable used to stop the thread/play turn loop
-        bool playGame;
+
+        void setPlayTurn(bool);
+
+
+
 };
 
 #endif
