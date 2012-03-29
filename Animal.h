@@ -1,15 +1,21 @@
 #ifndef ANIMAL_H
 #define ANIMAL_H
 
-#include "Resource.h"
+#define ANIMAL_IMAGE 'A'
 
-class Animal : public Resource
-{
+#include "Element.h"
+#include "Mobile.h"
+#include "Resource.h"
+#include "World.h"
+
+class Animal : public Mobile, private Resource {
     public:
         Animal();
-        virtual ~Animal();
-    protected:
+        Animal( int, int, World* );
     private:
+        string name;
+        void initAnimal();
+        bool Action();
 };
 
 #endif // ANIMAL_H

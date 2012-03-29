@@ -12,9 +12,11 @@ using namespace std;
 #include "Position.h"
 #include "Element.h"
 #include "Human.h"
+#include "Animal.h"
 
 // Number of humans to test the game
 #define TEST_HUMAN_NUMBER 5
+#define TEST_ANIMAL_NUMBER 5
 
 class World : public vector <Element*> {
     public:
@@ -28,6 +30,15 @@ class World : public vector <Element*> {
 // Size of the map
         int nbHexagonX;
         int nbHexagonY;
+
+// Reserves
+        int foodQuantity;
+        int woodQuantity;
+// Threshold Alert
+        int foodThresholdAlert;
+        int woodThresholdAlert;
+// Game date, 1 unity is 1 year
+        int GameDate;
 };
 
 #endif // WORLD_H

@@ -3,8 +3,10 @@
 
 #include <cstdlib>
 #include <cstdio>
+#include <vector>
 
 #include "Affichage.h"
+#include "Element.h"
 #include "World.h"
 
 class Controller {

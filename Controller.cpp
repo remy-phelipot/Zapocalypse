@@ -32,18 +32,18 @@ void Controller::InitialiseWorld( int pNbHexagonX, int pNbHexagonY ) {
 
 void Controller::Play( ) {
     char pressedKey;
-    unsigned int i = 0;
     int valX, valY;
 
     do {
 // Print the Element
         myWindow -> printGrid();
-// Browse the Vector to print each Element at its new position
-        for ( i = 0 ; i <= ( myWorld -> size() - 1 ) ; i++ ) {
-            valX = myWorld -> at( i ) -> getMyPosition().GetposX();
-            valY = myWorld -> at( i ) -> getMyPosition().GetposY();
-            myWindow -> printAtPosition( valX, valY, myWorld -> at( i ) -> getImage() );
+// Browse the Vector as an iterator to print each Element at its new position
+        for ( vector<Element*>::iterator it = myWorld -> begin() ; it != myWorld -> end() ; ++it ) {
+            valX = (*it) -> getMyPosition().GetposX();
+            valY = (*it) -> getMyPosition().GetposY();
+            myWindow -> printAtPosition( valX, valY, (*it) -> getImage() );
         }
+
 // Play a turn
         myWorld -> PlayTurn();
         cout << "Press a key to pass a turn (\'Q\' to exit):";

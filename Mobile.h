@@ -15,8 +15,7 @@ using namespace std;
 
 class World;
 
-class Mobile : public Element
-{
+class Mobile : public virtual Element {
     public:
 // Move the Mobile Element to the main point of interest
         void MoveObject();
@@ -26,7 +25,7 @@ class Mobile : public Element
         Mobile();
         Mobile( int, int, World *myWorld );
         /** Default destructor */
-        virtual ~Mobile();
+        //virtual ~Mobile();
         /** Access moveRange
          * \return The current value of moveRange
          */
@@ -47,7 +46,7 @@ class Mobile : public Element
     private:
         int moveRange; //!< Member variable "moveRange"
         int visionRange; //!< Member variable "visionRange"
-        World *myWorld; // Poiter to the world
+        World *myWorld; // Pointer to the world
 };
 
 #endif // MOBILE_H

@@ -7,6 +7,8 @@ World::World( int pNbHexagonX, int pNbHexagonY ) {
 // Variables
     Position tmpPosition;
 
+// Initialise default settings
+
 // Initialise default population
     for ( int i = 0 ; i <= TEST_HUMAN_NUMBER - 1 ; i++ ) {
 // Creates random coordinates for the new element
@@ -16,6 +18,16 @@ World::World( int pNbHexagonX, int pNbHexagonY ) {
 // Add the new Position into the map
         mapWorld[tmpPosition] = size() - 1;
     }
+/*
+// Initialise default animal number
+    for ( int i = 0 ; i <= TEST_ANIMAL_NUMBER - 1 ; i++ ) {
+// Creates random coordinates for the new element
+        tmpPosition = newCoordinates();
+        Element *initAnimal = new Animal( tmpPosition.GetposX(), tmpPosition.GetposY(), this );
+        push_back( initAnimal );
+// Add the new Position into the map
+        mapWorld[tmpPosition] = size() - 1;
+    }*/
 }
 
 
@@ -47,8 +59,6 @@ Position World::newCoordinates() {
         }
     }
 
-    //cout << "Nouvelle coordonnee X : " << newPosition.GetposX() << ", nouvelle coordonnee Y : " << newPosition.GetposY() << endl;
-
 // Return the new Position
     return newPosition;
 }
@@ -60,7 +70,6 @@ void World::PlayTurn () {
         at( i ) -> Action();
     }
 }
-
 
 map <Position, unsigned> *World::getMapWorld() {
     return &mapWorld;

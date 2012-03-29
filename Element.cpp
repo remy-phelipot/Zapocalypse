@@ -1,7 +1,7 @@
 #include "Element.h"
 
 Element::Element() :
-myPosition( POSITION_UNDEFINED, POSITION_UNDEFINED ) {}
+myPosition() {}
 
 Element::Element( int pPosX, int pPosY ) :
 myPosition( pPosX, pPosY ) {}

@@ -27,8 +27,6 @@ class Affichage {
         void hexagonToSize( int *, int * );
 // printAtPosition : print the letter of an element in the grid
         void printAtPosition( int, int, char );
-// Clear the input zone and move the cursor at the end of the grid
-        //void clearInputZone();
 };
 
 #endif

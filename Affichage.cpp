@@ -91,15 +91,3 @@ void Affichage::printAtPosition( int pSizeX, int pSizeY, char pLetter ) {
 // Set the cursor at its former position
     gotoxy( formerX, formerY );
 }
-/*
-void Affichage::clearInputZone() {
-// Set the cursor at the end of the grid
-    gotoxy( 0, sizeY + 1 );
-    int i;
-    for ( i = 0 ; i <= 100 ; i++ ) {
-        cout << " ";
-    }
-
-    gotoxy( 0, sizeY + 1 );
-}
-*/

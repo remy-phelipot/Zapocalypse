@@ -3,14 +3,13 @@
 
 #include "Element.h"
 
-
-class Resource : public Element
-{
+class Resource : public virtual Element {
     public:
         Resource();
-        virtual ~Resource();
-    protected:
+        Resource( int, int );
     private:
+        int foodQuality;
+        int woodQuality;
 };
 
 #endif // RESOURCE_H
