@@ -3,6 +3,9 @@
 
 #include <cstdlib>
 #include <cstdio>
+#include <vector>
+
+#include "Element.h"
 
 #include "World.h"
 #include "main_window.h"

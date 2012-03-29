@@ -23,10 +23,6 @@ class Human : public Mobile {
         int health;
 // Age
         int age;
-// Vision, 0 to 3
-        int vision;
-// Move range, 0 to 3
-        int movRange;
 // Boolean, is a children
         bool isChild;
 // Random, 0 to 50

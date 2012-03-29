@@ -1,17 +1,12 @@
 #include "Mobile.h"
 #include "World.h"
 
-Mobile::Mobile()
-{
-    //ctor
-}
+Mobile::Mobile() {}
 
 Mobile::Mobile( int pPosX, int pPosY, World *pMyWorld ) :
 Element( pPosX, pPosY ) {
     myWorld=pMyWorld;
 }
-
-Mobile::~Mobile(){}
 
 void Mobile::discoverObject() {
 
@@ -39,10 +34,10 @@ void Mobile::MoveObject() {
   \_/
 
  */
-
+    int direction = 0;
     while ( valide == false && i < 10 ) {
 // Random direction (1-6)
-        int direction = rand() % 6  + 1;
+        direction = rand() % 6  + 1;
 
         tmpPosX = getMyPosition().GetposX();
         tmpPosY = getMyPosition().GetposY();
@@ -98,7 +93,7 @@ void Mobile::MoveObject() {
         tmpPos = Position( getMyPosition().GetposX(), getMyPosition().GetposY() );
 // Insert the new coordinates into the map
         myWorld -> getMapWorld() -> insert( pair<Position, unsigned>(tmpPos, vectorIndex));
-        cout << "Hexagon new coordinates: ( " << getMyPosition().GetposX() << ", " << getMyPosition().GetposY() << " )." << endl;
+        cout << "Hexagon " << direction << " new coordinates: ( " << getMyPosition().GetposX() << ", " << getMyPosition().GetposY() << " )." << endl;
     }
     else {
         cout << "Can't move object..." << endl;

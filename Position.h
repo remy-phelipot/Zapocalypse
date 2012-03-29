@@ -28,8 +28,6 @@ class Position {
         void SetposY(int val) { posY = val; }
 // Compare with totally ordered relation
         bool operator < ( const Position &pPos ) const;
-// Redefined the comparison operators
-
 
     private:
         int posX; //!< Member variable "posX"
