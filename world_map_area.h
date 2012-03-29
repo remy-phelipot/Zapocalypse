@@ -37,6 +37,7 @@ public:
     //Add item in map
     void addItem(unsigned int, unsigned int,ItemType);
     bool removeItem(unsigned int, unsigned int);
+    bool clearAll();
     ~World_map_area();
 private:
     std::vector <QGraphicsPixmapItem *> hexagons;

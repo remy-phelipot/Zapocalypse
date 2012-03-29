@@ -11,11 +11,12 @@
 
 #include "world_map_area.h"
 #include "preference_window.h"
-
+#include "vector"
+#include "Element.h"
+#include <QMutex>
 class Controller;
 
 namespace gui{
-
 
 
 class Main_Window : public QMainWindow
@@ -25,6 +26,7 @@ public:
     Main_Window(Controller * _ctrl);
     ~Main_Window();
 
+    QMutex mutex;
 
 
 private:
@@ -54,7 +56,7 @@ public slots:
     void aboutQt();
     void startSimulation();
     void stopSimulation();
-    void printAtPosition(int,int,char);
+    void printAtPosition(std::vector<Element*> *);
 
 };
 

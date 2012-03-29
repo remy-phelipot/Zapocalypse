@@ -93,6 +93,17 @@ bool World_map_area::removeItem(unsigned int _x, unsigned int _y){
     return false;
 }
 
+bool World_map_area::clearAll(){
+
+    for (std::vector<struct ItemPosition>::iterator it = items.begin(); it!=items.end(); ++it) {
+            scene.removeItem(it->item);
+    }
+    items.clear();
+    return true;
+
+}
+
+
 void World_map_area::addItem(unsigned int _x, unsigned int _y, ItemType _itType){
     struct ItemPosition ip;
     ip.x = _x;

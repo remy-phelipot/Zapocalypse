@@ -4,6 +4,7 @@
 #include <QThread>
 #include "World.h"
 #include "main_window.h"
+#include "vector"
 class Controller;
 
 class Thread_World : public QThread
@@ -21,7 +22,7 @@ public:
 
     void setPlay(bool);
 signals:
-    void refreshMap (int,int,char);
+    void refreshMap (std::vector<Element*>*);
 public slots:
     
 };

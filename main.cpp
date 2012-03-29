@@ -7,6 +7,7 @@ int main( int nbArgs, char *tabArgs[] ) {
     QApplication app(nbArgs, tabArgs);
 // Start the controler
     Controller monControleur;
+
     cout << "Demarrage du controleur..." << endl;
     monControleur.Start();
 

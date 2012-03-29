@@ -4,7 +4,7 @@
 #include <QFormLayout>
 #include <QStyle>
 #include <QDesktopWidget>
-
+#include <iostream>
 #include "Controller.h"
 
 namespace gui{
@@ -136,9 +136,19 @@ void Main_Window::stopSimulation(){
     ctrl->setPlayTurn(false);
 }
 
-void Main_Window::printAtPosition(int _x,int _y,char){
-    area->addItem(_x,_y,zombieType);
-    area->repaint();
+void Main_Window::printAtPosition(vector<Element*> * _v){
+    int valX,valY;
+
+    area->clearAll();
+    mutex.lock();
+    for ( vector<Element*>::iterator it =  _v -> begin() ; it !=  _v -> end() ; ++it ) {
+        valX = (*it) -> getMyPosition().GetposX();
+        valY = (*it) -> getMyPosition().GetposY();
+        cout<<valX<<valY;
+        area->addItem( valX, valY,zombieType);
+    }
+    mutex.unlock();
+    cout<<"called\n";
 }
 
 }
