@@ -1,10 +1,13 @@
 #include "Mobile.h"
 #include "World.h"
 
-Mobile::Mobile() {}
+Mobile::Mobile() {
+    cout << "Mobile : default constructor." << endl;
+}
 
 Mobile::Mobile( int pPosX, int pPosY, World *pMyWorld ) :
 Element( pPosX, pPosY ) {
+    cout << "Mobile : parameterized constructor, x=" << pPosX << " y=" << pPosY << endl;
     myWorld=pMyWorld;
 }
 
@@ -21,6 +24,9 @@ void Mobile::MoveObject() {
 // Indicates if the new coordinates are valide
     bool valide = false;
     int i = 0;
+
+// Print coordinates
+    cout << "Actuel position : x=" << Element::getMyPosition().GetposX() << " y=" << Element::getMyPosition().GetposY() << endl;
 
 // If no objects were discovered, moves the Mobile Element to a random position
 // Random direction number

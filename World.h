@@ -5,6 +5,7 @@
 #include <vector>
 #include <ctime>
 #include <cstdlib>
+#include <cstdio>
 #include <map>
 
 using namespace std;
@@ -13,10 +14,13 @@ using namespace std;
 #include "Element.h"
 #include "Human.h"
 #include "Animal.h"
+#include "Zombie.h"
+#include "econio.h"
 
 // Number of humans to test the game
 #define TEST_HUMAN_NUMBER 5
 #define TEST_ANIMAL_NUMBER 5
+#define TEST_ZOMBIE_NUMBER 2
 
 class World : public vector <Element*> {
     public:

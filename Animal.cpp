@@ -1,14 +1,15 @@
 #include "Animal.h"
 
 Animal::Animal() {
+    cout << "Animal : default constructor." << endl;
     initAnimal();
 }
 
 Animal::Animal( int pPosX, int pPosY, World *pMyWorld ) :
-Element::Element(),
+Element::Element( pPosX, pPosY ),
 Mobile( pPosX, pPosY, pMyWorld ),
-Resource()
-{
+Resource() {
+    cout << "Animal : parameterized constructor." << endl;
     initAnimal();
 }
 

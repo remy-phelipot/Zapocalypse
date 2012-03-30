@@ -2,16 +2,17 @@
 #define ZOMBIE_H
 
 #include "Human.h"
-#include "World.h"
 
-class Zombie : public Human
-{
+#define ZOMBIE_IMAGE 'Z'
+
+class World;
+
+class Zombie : public Human {
     public:
         Zombie();
-        Zombie( int pPoxX, int pPosY, World *pMyWorld );
-        virtual ~Zombie();
-    protected:
+        Zombie( int, int, World* );
     private:
+        bool onMove;
 };
 
 #endif // ZOMBIE_H
