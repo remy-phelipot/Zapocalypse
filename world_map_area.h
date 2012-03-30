@@ -6,7 +6,7 @@
 #include <QGraphicsPixmapItem>
 #include <cmath>
 #include <iostream>
-
+#include "Element.h"
 
 namespace gui{
 
@@ -20,7 +20,7 @@ struct ItemPosition{
     unsigned int y;
 };
 
-//Enumeration of all items
+/*//Enumeration of all items
 enum ItemType{
     hexagonType,
     zombieType,
@@ -28,7 +28,7 @@ enum ItemType{
     humanWType,
     townType,
     rabbitType
-};
+};*/
 
 class World_map_area : public QGraphicsView
 {

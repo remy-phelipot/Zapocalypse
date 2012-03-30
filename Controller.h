@@ -31,9 +31,6 @@ class Controller {
         void Play();
 
         void setPlayTurn(bool);
-
-
-
 };
 
 #endif

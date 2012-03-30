@@ -145,7 +145,7 @@ void Main_Window::printAtPosition(vector<Element*> * _v){
         valX = (*it) -> getMyPosition().GetposX();
         valY = (*it) -> getMyPosition().GetposY();
         cout<<valX<<valY;
-        area->addItem( valX, valY,zombieType);
+        area->addItem( valX, valY,(*it)->getType());
     }
     mutex.unlock();
 }

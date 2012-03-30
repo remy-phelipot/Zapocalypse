@@ -5,12 +5,13 @@ World_map_area::World_map_area(QWidget * _parent, unsigned int _width, unsigned 
     QGraphicsView(),
     hexagons(),
     scene(),
-    hexagon("hexa.svg"),
+    hexagon("hexa"),
     zombie("zombie.png"),
-    humanF("humanF.png"),
-    humanM("humanM.png"),
-    tree("tree.png"),
-    rabbit("rabbit.png")
+    humanF("Woman.png"),
+    humanM("Man.png"),
+    rabbit("Rabbit.png"),
+    town("City.png"),
+    tree("Tree.png")
 {
     //Resize pictures
     /*hexagon = hexagon.scaled(QSize(zombie.width()/6.0,zombie.height()/6.0),
@@ -19,6 +20,25 @@ World_map_area::World_map_area(QWidget * _parent, unsigned int _width, unsigned 
 
     zombie = zombie.scaled(QSize(zombie.width()/6.0,zombie.height()/6.0),
                            Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation);
+
+    humanF = humanF.scaled(QSize(humanF.width()/6.0,humanF.height()/6.0),
+                           Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation);
+
+
+    humanM = humanM.scaled(QSize(humanM.width()/6.0,humanM.height()/6.0),
+                           Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation);
+
+    rabbit = rabbit.scaled(QSize(rabbit.width()/6.0,rabbit.height()/6.0),
+                           Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation);
+
+    town = town.scaled(QSize(town.width()/6.0,town.height()/6.0),
+                           Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation);
+
+    tree = tree.scaled(QSize(tree.width()/6.0,tree.height()/6.0),
+                           Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation);
+
+
+
 
     setParent(_parent);
     setScene(&scene);
