@@ -1,11 +1,13 @@
 #include "Human.h"
 
 Human::Human() {
+    cout << "Human : default constructor." << endl;
     initHuman();
 }
 
 Human::Human( int pPosX, int pPosY, World *pMyWorld ) :
 Mobile( pPosX, pPosY, pMyWorld ) {
+    cout << "Human : parameterized constructor." << endl;
     initHuman();
 }
 

@@ -28,6 +28,10 @@ World::World( int pNbHexagonX, int pNbHexagonY ) {
 // Add the new Position into the map
         mapWorld[tmpPosition] = size() - 1;
     }
+
+    cout << "World initialized.";
+    fflush( stdin );
+    getch();
 }
 
 

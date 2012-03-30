@@ -1,10 +1,13 @@
 #include "Mobile.h"
 #include "World.h"
 
-Mobile::Mobile() {}
+Mobile::Mobile() {
+    cout << "Mobile : default constructor." << endl;
+}
 
 Mobile::Mobile( int pPosX, int pPosY, World *pMyWorld ) :
 Element( pPosX, pPosY ) {
+    cout << "Mobile : parameterized constructor, x=" << pPosX << " y=" << pPosY << endl;
     myWorld=pMyWorld;
 }
 

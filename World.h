@@ -5,6 +5,7 @@
 #include <vector>
 #include <ctime>
 #include <cstdlib>
+#include <cstdio>
 #include <map>
 
 using namespace std;
@@ -13,6 +14,7 @@ using namespace std;
 #include "Element.h"
 #include "Human.h"
 #include "Animal.h"
+#include "econio.h"
 
 // Number of humans to test the game
 #define TEST_HUMAN_NUMBER 5
