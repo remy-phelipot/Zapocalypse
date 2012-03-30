@@ -7,7 +7,7 @@ Position::Position() {
 }
 
 Position::Position( int pPosX, int pPosY ) {
-    cout << "Position : parameterized constructor, x=" << pPosX << " y=" << pPosY << endl;
+    //cout << "Position : parameterized constructor, x=" << pPosX << " y=" << pPosY << endl;
     posX = pPosX;
     posY = pPosY;
 }

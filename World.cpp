@@ -29,6 +29,16 @@ World::World( int pNbHexagonX, int pNbHexagonY ) {
         mapWorld[tmpPosition] = size() - 1;
     }
 
+// Initialise default zombie population
+    for ( int i = 0 ; i <= TEST_ZOMBIE_NUMBER - 1 ; i++ ) {
+// Creates random coordinates for the new element
+        tmpPosition = newCoordinates();
+        Element *initZombie = new Zombie( tmpPosition.GetposX(), tmpPosition.GetposY(), this );
+        push_back( initZombie );
+// Add the new Position into the map
+        mapWorld[tmpPosition] = size() - 1;
+    }
+
     cout << "World initialized.";
     fflush( stdin );
     getch();
@@ -62,7 +72,7 @@ Position World::newCoordinates() {
             valide = true;
         }
     }
-
+    cout << "New coordinates : x=" << valX  << " y=" << valY << endl;
 // Return the new Position
     return newPosition;
 }

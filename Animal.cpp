@@ -6,7 +6,7 @@ Animal::Animal() {
 }
 
 Animal::Animal( int pPosX, int pPosY, World *pMyWorld ) :
-Element::Element(),
+Element::Element( pPosX, pPosY ),
 Mobile( pPosX, pPosY, pMyWorld ),
 Resource() {
     cout << "Animal : parameterized constructor." << endl;

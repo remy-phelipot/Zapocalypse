@@ -1,10 +1,14 @@
 #include "Element.h"
 
 Element::Element() :
-myPosition() {}
+myPosition() {
+    cout << "Element : default constructor." << endl;
+}
 
 Element::Element( int pPosX, int pPosY ) :
-myPosition( pPosX, pPosY ) {}
+myPosition( pPosX, pPosY ) {
+    cout << "Element : parameterized constructor." << endl;
+}
 
 bool Element::Action() {
     cout << "Error : default action" << endl;

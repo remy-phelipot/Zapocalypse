@@ -6,6 +6,7 @@ Human::Human() {
 }
 
 Human::Human( int pPosX, int pPosY, World *pMyWorld ) :
+Element ( pPosX, pPosY ),
 Mobile( pPosX, pPosY, pMyWorld ) {
     cout << "Human : parameterized constructor." << endl;
     initHuman();
