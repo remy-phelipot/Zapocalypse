@@ -7,6 +7,7 @@
 
 class World;
 
+
 class Zombie : public Human {
     public:
         Zombie();

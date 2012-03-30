@@ -1,4 +1,7 @@
 #include "World.h"
+#include "Zombie.h"
+
+
 
 World::World( int pNbHexagonX, int pNbHexagonY ) {
     nbHexagonX = pNbHexagonX;
@@ -41,7 +44,7 @@ World::World( int pNbHexagonX, int pNbHexagonY ) {
 
     cout << "World initialized.";
     fflush( stdin );
-    getch();
+    //getch();
 }
 
 
