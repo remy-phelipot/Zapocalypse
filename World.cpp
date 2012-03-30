@@ -41,6 +41,16 @@ World::World( int pNbHexagonX, int pNbHexagonY ) {
         mapWorld[tmpPosition] = size() - 1;
     }
 
+// Initialise default town number
+    for ( int i = 0 ; i <= TEST_TOWN_NUMBER - 1 ; i++ ) {
+// Creates random coordinates for the new element
+        tmpPosition = newCoordinates();
+        Element *initTown = new Town( tmpPosition.GetposX(), tmpPosition.GetposY(), this );
+        push_back( initTown );
+// Add the new Position into the map
+        mapWorld[tmpPosition] = size() - 1;
+    }
+
     cout << "World initialized.";
     fflush( stdin );
     getch();

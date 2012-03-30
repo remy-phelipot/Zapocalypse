@@ -6,7 +6,7 @@
 class Resource : public virtual Element {
     public:
         Resource();
-        Resource( int, int );
+        Resource( int, int, int, int );
     private:
         int foodQuality;
         int woodQuality;

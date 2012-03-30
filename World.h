@@ -10,16 +10,18 @@
 
 using namespace std;
 
-#include "Position.h"
+#include "Animal.h"
 #include "Element.h"
 #include "Human.h"
-#include "Animal.h"
+#include "Position.h"
+#include "Town.h"
 #include "econio.h"
 
 // Number of humans to test the game
 #define TEST_HUMAN_NUMBER 5
 #define TEST_ANIMAL_NUMBER 5
 #define TEST_ZOMBIE_NUMBER 2
+#define TEST_TOWN_NUMBER 3
 
 class Zombie;
 
