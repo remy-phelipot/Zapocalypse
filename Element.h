@@ -6,6 +6,15 @@ using namespace std;
 
 #include "Position.h"
 
+enum ItemType {
+    hexagonType,
+    zombieType,
+    humanMType,
+    humanWType,
+    townType,
+    rabbitType
+};
+
 class Element {
     public:
         Element();
@@ -15,10 +24,13 @@ class Element {
         void setMyPosition( int, int );
         void setImage( char );
         char getImage();
+        void setType ( ItemType );
+        ItemType getType ();
 
     private:
         Position myPosition;
         char image;
+        ItemType type;
 };
 
 #endif // ELEMENTS_H

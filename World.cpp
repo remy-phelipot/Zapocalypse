@@ -18,7 +18,7 @@ World::World( int pNbHexagonX, int pNbHexagonY ) {
 // Add the new Position into the map
         mapWorld[tmpPosition] = size() - 1;
     }
-/*
+
 // Initialise default animal number
     for ( int i = 0 ; i <= TEST_ANIMAL_NUMBER - 1 ; i++ ) {
 // Creates random coordinates for the new element
@@ -27,7 +27,7 @@ World::World( int pNbHexagonX, int pNbHexagonY ) {
         push_back( initAnimal );
 // Add the new Position into the map
         mapWorld[tmpPosition] = size() - 1;
-    }*/
+    }
 }
 
 

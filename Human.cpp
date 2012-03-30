@@ -27,6 +27,8 @@ void Human::initHuman () {
 
 // Image of a Human : H
     setImage( HUMAN_IMAGE );
+// Type of a Human
+    setType( humanMType );
 }
 
 bool Human::Action() {
