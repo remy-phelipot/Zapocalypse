@@ -1,14 +1,12 @@
 #include "Human.h"
 
 Human::Human() {
-    cout << "Human : default constructor." << endl;
     initHuman();
 }
 
 Human::Human( int pPosX, int pPosY, World *pMyWorld ) :
 Element ( pPosX, pPosY ),
 Mobile( pPosX, pPosY, pMyWorld ) {
-    cout << "Human : parameterized constructor." << endl;
     initHuman();
 }
 
@@ -23,20 +21,35 @@ void Human::initHuman () {
 // Random moveRange
     SetmoveRange( 1 );
     isChild = true;
-    lifeExpectancy = 75;
+// Random life expectancy
+    lifeExpectancy = rand() % 75 + 1;
+
     isContaminated = false;
     incubation = 0;
     dailyFoodConsumption = 10;
+// Random gender : 1 or 2
+    gender = rand() % 2 + 1;
+    cout << "Gender : " << gender << endl;
 
-// Image of a Human : H
-    setImage( HUMAN_IMAGE );
+// Image of a Human
 // Type of a Human
-    setType( humanMType );
+    if ( gender == 1 ) {
+        setImage( HUMAN_IMAGE_MAN );
+        setType( humanMType );
+    }
+    else {
+        setImage( HUMAN_IMAGE_WOMAN );
+        setType( humanWType );
+    }
 }
 
 bool Human::Action() {
     cout << "Human basic action, moving..." << endl;
     MoveObject();
+
+// Increase age
+    age++;
+
 // No problem
     return true;
 // If there is a problem, return false and delete the element (fail)

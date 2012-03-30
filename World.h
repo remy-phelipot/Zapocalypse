@@ -14,7 +14,6 @@ using namespace std;
 #include "Element.h"
 #include "Human.h"
 #include "Animal.h"
-//#include "econio.h"
 
 // Number of humans to test the game
 #define TEST_HUMAN_NUMBER 5

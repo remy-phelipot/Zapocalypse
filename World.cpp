@@ -1,8 +1,6 @@
 #include "World.h"
 #include "Zombie.h"
 
-
-
 World::World( int pNbHexagonX, int pNbHexagonY ) {
     nbHexagonX = pNbHexagonX;
     nbHexagonY = pNbHexagonY;
@@ -11,6 +9,7 @@ World::World( int pNbHexagonX, int pNbHexagonY ) {
     Position tmpPosition;
 
 // Initialise default settings
+    GameDate = 0;
 
 // Initialise default population
     for ( int i = 0 ; i <= TEST_HUMAN_NUMBER - 1 ; i++ ) {
@@ -71,7 +70,7 @@ Position World::newCoordinates() {
         newPosition = Position( valX, valY );
 
 // Check if the coordinates aren't already used in the map
-        if ( mapWorld.find( newPosition ) == mapWorld.end() ) {
+        if ( mapWorld.find( newPosition ) == mapWorld.end() && valX < 20 && valX >= 0 && valY < 20 && valY >= 0 ) {
             valide = true;
         }
     }
@@ -86,6 +85,7 @@ void World::PlayTurn () {
     for ( unsigned int i = 0 ; i <= ( size() - 1 ) ; i++ ) {
         at( i ) -> Action();
     }
+    GameDate++;
 }
 
 map <Position, unsigned> *World::getMapWorld() {
