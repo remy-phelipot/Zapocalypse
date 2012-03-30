@@ -25,9 +25,6 @@ void Mobile::MoveObject() {
     bool valide = false;
     int i = 0;
 
-// Print coordinates
-    cout << "Actuel position : x=" << Element::getMyPosition().GetposX() << " y=" << Element::getMyPosition().GetposY() << endl;
-
 // If no objects were discovered, moves the Mobile Element to a random position
 // Random direction number
 /**

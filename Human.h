@@ -7,7 +7,8 @@ using namespace std;
 #include "Mobile.h"
 #include "World.h"
 
-#define HUMAN_IMAGE 'H'
+#define HUMAN_IMAGE_MAN 'M'
+#define HUMAN_IMAGE_WOMAN 'W'
 
 class Human : public Mobile {
     public:
@@ -23,6 +24,8 @@ class Human : public Mobile {
         int health;
 // Age
         int age;
+// Gender : M-W, 1 male, 2 female
+        int gender;
 // Boolean, is a children
         bool isChild;
 // Random, 0 to 50
