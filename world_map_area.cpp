@@ -108,6 +108,7 @@ bool World_map_area::removeItem(unsigned int _x, unsigned int _y){
     for (std::vector<struct ItemPosition>::iterator it = items.begin(); it!=items.end(); ++it) {
         if (it->x == _x && it->y == _y){
             scene.removeItem(it->item);
+            delete(it->item);
             items.erase(it);
             return true;
         }
@@ -118,7 +119,7 @@ bool World_map_area::removeItem(unsigned int _x, unsigned int _y){
 bool World_map_area::clearAll(){
 
     for (std::vector<struct ItemPosition>::iterator it = items.begin(); it!=items.end(); ++it) {
-            scene.removeItem(it->item);
+            delete(it->item);
     }
     items.clear();
     return true;
