@@ -21,9 +21,14 @@ void Animal::initAnimal () {
 
 // Image of an Animal : A
     Resource::setImage( ANIMAL_IMAGE );
+// Set Type of Element
+    Resource::setType( rabbitType );
 }
 
 bool Animal::Action() {
-    cout << "Animal basic Action..." << endl;
+    cout << "Animal basic action, moving..." << endl;
+    MoveObject();
+// No problem
     return true;
+// If there is a problem, return false and delete the element (fail)
 }

@@ -27,3 +27,11 @@ void Element::setImage( char pImage ) {
 char Element::getImage() {
     return image;
 }
+
+void Element::setType ( ItemType pType ) {
+    type = pType;
+}
+
+ItemType Element::getType () {
+    return type;
+}
