@@ -18,8 +18,7 @@ void Thread_World::run(){
     playTurn = true;
 
     while(playTurn){
-            cout<<"top";
-            sleep(1);
+            sleep(0.7);
             window->mutex.lock();
             world -> PlayTurn();
             window->mutex.unlock();

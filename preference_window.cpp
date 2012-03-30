@@ -3,12 +3,17 @@
 #include <QLineEdit>
 #include <QDesktopWidget>
 #include <QApplication>
+
+#include "Controller.h"
+
 namespace gui{
 
 
-preference_window::preference_window(QWidget *parent) :
+preference_window::preference_window(QWidget *parent, Controller * _ctrl) :
     QWidget(parent)
 {
+    ctrl = _ctrl;
+
     QVBoxLayout* vl = new QVBoxLayout(this);
     QFormLayout* fl = new QFormLayout();
 
@@ -76,6 +81,7 @@ void preference_window::okAction(){
     if (true){
         QMessageBox::warning(this,"Empty fields","One or many fields are empty, please check its",QMessageBox::Ok,QMessageBox::NoButton);
     }else{
+
         delete(this);
     }
 

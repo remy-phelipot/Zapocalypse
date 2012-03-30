@@ -50,7 +50,7 @@ private:
     QPixmap humanM;
     QPixmap town;
     QPixmap rabbit;
-
+    QPixmap tree;
 
     double gapInterHexagon;
     double gapBHexagon;

@@ -5,10 +5,12 @@ World_map_area::World_map_area(QWidget * _parent, unsigned int _width, unsigned 
     QGraphicsView(),
     hexagons(),
     scene(),
-    hexagon("Hexa.svg"),
-    zombie("Zombie2.png"),
-    humanF(),
-    humanM()
+    hexagon("hexa.svg"),
+    zombie("zombie.png"),
+    humanF("humanF.png"),
+    humanM("humanM.png"),
+    tree("tree.png"),
+    rabbit("rabbit.png")
 {
     //Resize pictures
     /*hexagon = hexagon.scaled(QSize(zombie.width()/6.0,zombie.height()/6.0),

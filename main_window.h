@@ -16,8 +16,9 @@
 #include <QMutex>
 class Controller;
 
-namespace gui{
 
+
+namespace gui{
 
 class Main_Window : public QMainWindow
 {

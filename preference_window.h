@@ -9,14 +9,19 @@
 #include <QLabel>
 #include "preference_window.h"
 #include <QMessageBox>
+class Controller;
 namespace gui{
+
 
 
 class preference_window : public QWidget
 {
     Q_OBJECT
+private:
+    Controller * ctrl;
+
 public:
-    explicit preference_window(QWidget *parent = 0);
+    preference_window(QWidget *parent, Controller * _ctrl);
     
 signals:
     

@@ -104,7 +104,7 @@ void Main_Window::buildMenu(){
 //slots
 
 void Main_Window::preference(){
-    preference_window *win = new preference_window(this);
+    preference_window *win = new preference_window(this,ctrl);
     win->setVisible(true);
     win->show();
 }
@@ -148,7 +148,6 @@ void Main_Window::printAtPosition(vector<Element*> * _v){
         area->addItem( valX, valY,zombieType);
     }
     mutex.unlock();
-    cout<<"called\n";
 }
 
 }
