@@ -26,6 +26,11 @@ using namespace std;
 #define TEST_TREE_NUMBER 3
 #define TEST_ZOMBIE_NUMBER 2
 
+#define TEST_FOOD_QUANTITY 200
+#define TEST_WOOD_QUANTITY 200
+#define TEST_FOOD_THRESHOLD 150
+#define TEST_WOOD_THRESHOLD 150
+
 class Zombie;
 
 class World : public vector <Element*> {
@@ -34,6 +39,15 @@ class World : public vector <Element*> {
         Position newCoordinates();
         void PlayTurn();
         map <Position, unsigned> *getMapWorld();
+//Resources gestion
+        void eatFood( int );
+        void useWood( int );
+        int getFood();
+        int getWood();
+        int getFoodThreshold();
+        int getWoodThreshold();
+// Delete an element
+        void deleteElement( int );
 
     private:
         map <Position, unsigned> mapWorld;

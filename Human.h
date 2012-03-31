@@ -16,6 +16,9 @@ class Human : public Mobile {
         Human( int, int, World * );
         void initHuman();
         bool Action();
+        int getAge();
+        int getLifeExpectancy();
+        int getHealt();
 
     private:
 // Read a name in the name file
@@ -36,6 +39,8 @@ class Human : public Mobile {
         int incubation;
 // Amount of food eaten by day
         int dailyFoodConsumption;
+// Amount of wood used by day
+        int dailyWoodConsumption;
 };
 
 #endif // HUMAN_H
