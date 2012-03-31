@@ -1,12 +1,14 @@
 #ifndef ANIMAL_H
 #define ANIMAL_H
 
-#define ANIMAL_IMAGE 'A'
-
 #include "Element.h"
 #include "Mobile.h"
 #include "Resource.h"
 #include "World.h"
+
+#define ANIMAL_IMAGE 'A'
+#define ANIMAL_DEFAULT_FOOD 10
+#define ANIMAL_DEFAULT_WOOD 0
 
 class Animal : public Mobile, private Resource {
     public:

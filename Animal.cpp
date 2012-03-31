@@ -8,7 +8,7 @@ Animal::Animal() {
 Animal::Animal( int pPosX, int pPosY, World *pMyWorld ) :
 Element::Element( pPosX, pPosY ),
 Mobile( pPosX, pPosY, pMyWorld ),
-Resource() {
+Resource( ANIMAL_DEFAULT_FOOD, ANIMAL_DEFAULT_WOOD, pPosX, pPosY ) {
     cout << "Animal : parameterized constructor." << endl;
     initAnimal();
 }
