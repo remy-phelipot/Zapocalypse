@@ -11,7 +11,7 @@ World::World( int pNbHexagonX, int pNbHexagonY ) {
 // Initialise default settings
     GameDate = 0;
 
-// Initialise default population
+// Initialise default human population
     for ( int i = 0 ; i <= TEST_HUMAN_NUMBER - 1 ; i++ ) {
 // Creates random coordinates for the new element
         tmpPosition = newCoordinates();
@@ -21,7 +21,7 @@ World::World( int pNbHexagonX, int pNbHexagonY ) {
         mapWorld[tmpPosition] = size() - 1;
     }
 
-// Initialise default animal number
+// Initialise default animal population
     for ( int i = 0 ; i <= TEST_ANIMAL_NUMBER - 1 ; i++ ) {
 // Creates random coordinates for the new element
         tmpPosition = newCoordinates();
@@ -47,6 +47,16 @@ World::World( int pNbHexagonX, int pNbHexagonY ) {
         tmpPosition = newCoordinates();
         Element *initTown = new Town( tmpPosition.GetposX(), tmpPosition.GetposY(), this );
         push_back( initTown );
+// Add the new Position into the map
+        mapWorld[tmpPosition] = size() - 1;
+    }
+
+// Initialise default tree population
+    for ( int i = 0 ; i <= TEST_TREE_NUMBER - 1 ; i++ ) {
+// Creates random coordinates for the new element
+        tmpPosition = newCoordinates();
+        Element *initTree = new Tree( tmpPosition.GetposX(), tmpPosition.GetposY(), this );
+        push_back( initTree );
 // Add the new Position into the map
         mapWorld[tmpPosition] = size() - 1;
     }

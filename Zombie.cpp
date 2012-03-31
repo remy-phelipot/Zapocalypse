@@ -19,3 +19,18 @@ Human ( pPosX, pPosY, pMyWorld ) {
 // Type of a Zombie
     setType( zombieType );
 }
+
+bool Zombie::Action() {
+    if ( onMove ) {
+        cout << "Zombie basic action, moving..." << endl;
+        MoveObject();
+        onMove = !onMove;
+    }
+    else {
+        onMove = !onMove;
+    }
+
+// No problem
+    return true;
+// If there is a problem, return false and delete the element (fail)
+}

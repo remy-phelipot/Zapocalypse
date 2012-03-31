@@ -12,6 +12,7 @@ class Zombie : public Human {
     public:
         Zombie();
         Zombie( int, int, World* );
+        bool Action();
     private:
         bool onMove;
 };

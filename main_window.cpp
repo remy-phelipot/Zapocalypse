@@ -9,11 +9,11 @@
 
 namespace gui{
 Main_Window::Main_Window(Controller * _ctrl) :
-    QMainWindow()
-
+    QMainWindow(),
+    isNotReady()
 {
     ctrl = _ctrl;
-
+    refreshing = false;
     buildMenu();
     QVBoxLayout *layout = new QVBoxLayout();
     QHBoxLayout *hlayout = new QHBoxLayout();
@@ -124,6 +124,7 @@ void Main_Window::startSimulation(){
     start->setEnabled(false);
     stop->setEnabled(true);
     preferenceAction->setEnabled(false);
+    refreshing = false;
 
     ctrl->Play();
 }
@@ -133,20 +134,25 @@ void Main_Window::stopSimulation(){
     stop->setEnabled(false);
     preferenceAction->setEnabled(true);
 
+    refreshing = false;
+
     ctrl->setPlayTurn(false);
 }
 
 void Main_Window::printAtPosition(vector<Element*> * _v){
     int valX,valY;
+    mutex.lock();
 
     area->clearAll();
-    mutex.lock();
+
     for ( vector<Element*>::iterator it =  _v -> begin() ; it !=  _v -> end() ; ++it ) {
         valX = (*it) -> getMyPosition().GetposX();
         valY = (*it) -> getMyPosition().GetposY();
         cout<<valX<<valY;
         area->addItem( valX, valY,(*it)->getType());
     }
+    refreshing = false;
+    isNotReady.wakeAll();
     mutex.unlock();
 }
 

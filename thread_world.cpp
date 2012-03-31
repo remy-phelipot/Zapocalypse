@@ -18,13 +18,15 @@ void Thread_World::run(){
     playTurn = true;
 
     while(playTurn){
-            sleep(0.7);
-            window->mutex.lock();
-            world -> PlayTurn();
-            window->mutex.unlock();
-            emit refreshMap (world);
+        window->mutex.lock();
+        if (window->refreshing == true)
+            window->isNotReady.wait(&(window->mutex));
+        this->msleep(50);
 
-
+        world -> PlayTurn();
+        window->refreshing = true;
+        emit refreshMap (world);
+        window->mutex.unlock();
     }
 }
 

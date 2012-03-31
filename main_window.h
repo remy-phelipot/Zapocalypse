@@ -14,6 +14,7 @@
 #include "vector"
 #include "Element.h"
 #include <QMutex>
+#include <QWaitCondition>
 class Controller;
 
 
@@ -28,7 +29,8 @@ public:
     ~Main_Window();
 
     QMutex mutex;
-
+    QWaitCondition isNotReady;
+    bool refreshing;
 
 private:
 

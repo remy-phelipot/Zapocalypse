@@ -101,6 +101,8 @@ World_map_area::~World_map_area(){
         scene.removeItem(it->item);
         delete(it->item);
     }
+
+
 }
 
 bool World_map_area::removeItem(unsigned int _x, unsigned int _y){
@@ -171,6 +173,8 @@ QGraphicsPixmapItem * World_map_area::createQGraphicsPixmapItem (ItemType _itTyp
         break;
     case hexagonType:
         it = new QGraphicsPixmapItem(hexagon);
+    case treeType:
+        it = new QGraphicsPixmapItem(tree);
     }
     return it;
 }
