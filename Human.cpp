@@ -27,6 +27,7 @@ void Human::initHuman () {
     isContaminated = false;
     incubation = 0;
     dailyFoodConsumption = 10;
+    dailyWoodConsumption = 5;
 // Random gender : 1 or 2
     gender = rand() % 2 + 1;
     cout << "Gender : " << gender << endl;
@@ -43,14 +44,35 @@ void Human::initHuman () {
     }
 }
 
+
 bool Human::Action() {
     cout << "Human basic action, moving..." << endl;
     MoveObject();
 
+// Human eats food
+    getMyWorld() -> eatFood( dailyFoodConsumption );
+// Human uses wood
+    getMyWorld() -> useWood( dailyWoodConsumption );
+// Starvation
+    if ( getMyWorld() -> getFood() < dailyFoodConsumption ) {
+        health -= 10;
+    }
 // Increase age
     age++;
 
 // No problem
     return true;
 // If there is a problem, return false and delete the element (fail)
+}
+
+int Human::getLifeExpectancy() {
+    return lifeExpectancy;
+}
+
+int Human::getAge() {
+    return age;
+}
+
+int Human::getHealt() {
+    return health;
 }

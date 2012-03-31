@@ -103,3 +103,7 @@ void Mobile::MoveObject() {
         //Sleep( 3000 );
     }
 }
+
+World *Mobile::getMyWorld() {
+    return myWorld;
+}
