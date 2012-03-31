@@ -24,6 +24,7 @@ World::World( int pNbHexagonX, int pNbHexagonY ) {
 // Add the new Position into the map
         mapWorld[tmpPosition] = size() - 1;
     }
+    humanNumber = TEST_HUMAN_NUMBER;
 
 // Initialise default animal population
     for ( int i = 0 ; i <= TEST_ANIMAL_NUMBER - 1 ; i++ ) {
@@ -105,17 +106,21 @@ Position World::newCoordinates() {
 
 
 void World::PlayTurn () {
+    humanNumber = 0;
 // For each element in the vector, call the Action method
     for ( unsigned int i = 0 ; i <= ( size() - 1 ) ; i++ ) {
         at( i ) -> Action();
-// Delete elements if healt <= 0 or age = lifeExpectancy
+
         if ( at( i ) -> getType() == humanMType || at( i ) -> getType() == humanWType ) {
+            humanNumber++;
+// Delete elements if healt <= 0 or age = lifeExpectancy
             cout << "Human " << dynamic_cast<Human*>(at(i))->getAge() << endl;
             if ( dynamic_cast<Human*>(at(i))->getAge()==dynamic_cast<Human*>(at(i))->getLifeExpectancy() || dynamic_cast<Human*>(at(i))->getHealt()<=0 ) {
                 deleteElement( i );
             }
         }
     }
+
     GameDate++;
 }
 
@@ -161,4 +166,8 @@ int World::getFoodThreshold() {
 
 int World::getWoodThreshold() {
     return woodThresholdAlert;
+}
+
+int World::getGameDate() {
+    return GameDate;
 }

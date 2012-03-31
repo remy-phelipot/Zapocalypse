@@ -22,8 +22,7 @@ void Human::initHuman () {
     SetmoveRange( 1 );
     isChild = true;
 // Random life expectancy
-    //lifeExpectancy = rand() % 75 + 1;?
-    lifeExpectancy = 75;
+    lifeExpectancy = 50 + ( rand() % ( 75 - 50 ) );
 
     isContaminated = false;
     incubation = 0;
@@ -58,9 +57,12 @@ bool Human::Action() {
     if ( getMyWorld() -> getFood() < dailyFoodConsumption ) {
         health -= 10;
     }
+
 // Increase age
     age++;
-
+    if ( age == 15 ) {
+        isChild = false;
+    }
 // No problem
     return true;
 // If there is a problem, return false and delete the element (fail)

@@ -51,3 +51,7 @@ void Controller::Play( ) {
         pressedKey = getch();
     } while ( pressedKey != 'Q' );
 }
+
+int Controller::getGameDate() {
+    return this -> myWorld -> getGameDate();
+}

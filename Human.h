@@ -31,7 +31,7 @@ class Human : public Mobile {
         int gender;
 // Boolean, is a children
         bool isChild;
-// Random, 0 to 50
+// Random, 50 to 75
         int lifeExpectancy;
 // Boolean, was bitten by a zombie
         bool isContaminated;

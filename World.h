@@ -27,8 +27,8 @@ using namespace std;
 
 #define TEST_FOOD_QUANTITY 200
 #define TEST_WOOD_QUANTITY 200
-#define TEST_FOOD_THRESHOLD 150
-#define TEST_WOOD_THRESHOLD 150
+#define TEST_FOOD_THRESHOLD 100
+#define TEST_WOOD_THRESHOLD 100
 
 class Zombie;
 
@@ -47,6 +47,9 @@ class World : public vector <Element*> {
         int getWoodThreshold();
 // Delete an element
         void deleteElement( int );
+// Game informations
+// Date
+        int getGameDate();
 
     private:
         map <Position, unsigned> mapWorld;
@@ -62,6 +65,8 @@ class World : public vector <Element*> {
         int woodThresholdAlert;
 // Game date, 1 unity is 1 year
         int GameDate;
+// Number of humans
+        int humanNumber;
 };
 
 #endif // WORLD_H

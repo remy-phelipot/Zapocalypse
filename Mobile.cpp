@@ -11,13 +11,94 @@ Element( pPosX, pPosY ) {
     myWorld=pMyWorld;
 }
 
-void Mobile::discoverObject() {
 
+// Interaction with other elements
+int Mobile::discoverObject() {
+    int direction = 0;
+
+// Discover all elements, put it into a table
+// then choose wich one is the best
+    int tabElements[ 6 ];
+
+// Man : can reproduce if woman have been discovered and resources are available
+    if ( getType() == humanMType ) {
+        Position tmpPos;
+        int valide = false;
+        int tmpPosX = getMyPosition().GetposX();
+        int tmpPosY = getMyPosition().GetposY();
+// 1
+        tmpPosY -= 2;
+// Check if out of bounds
+        if ( tmpPosX < 20 && tmpPosX >= 0 && tmpPosY < 20 && tmpPosY >= 0 ) {
+            tmpPos = Position( tmpPosX, tmpPosY );
+            if ( myWorld -> getMapWorld() -> find( tmpPos ) == myWorld -> getMapWorld() -> end() ) {
+// Check if place is free (with map)
+                valide = true;
+            }
+        }
+// 2
+        tmpPosX += 1;
+        tmpPosY -= 1;
+// Check if out of bounds
+        if ( tmpPosX < 20 && tmpPosX >= 0 && tmpPosY < 20 && tmpPosY >= 0 ) {
+            tmpPos = Position( tmpPosX, tmpPosY );
+            if ( myWorld -> getMapWorld() -> find( tmpPos ) == myWorld -> getMapWorld() -> end() ) {
+// Check if place is free (with map)
+                valide = true;
+            }
+        }
+// 3
+        tmpPosX += 1;
+        tmpPosY += 1;
+// Check if out of bounds
+        if ( tmpPosX < 20 && tmpPosX >= 0 && tmpPosY < 20 && tmpPosY >= 0 ) {
+            tmpPos = Position( tmpPosX, tmpPosY );
+            if ( myWorld -> getMapWorld() -> find( tmpPos ) == myWorld -> getMapWorld() -> end() ) {
+// Check if place is free (with map)
+                valide = true;
+            }
+        }
+// 4
+        tmpPosY += 2;
+// Check if out of bounds
+        if ( tmpPosX < 20 && tmpPosX >= 0 && tmpPosY < 20 && tmpPosY >= 0 ) {
+            tmpPos = Position( tmpPosX, tmpPosY );
+            if ( myWorld -> getMapWorld() -> find( tmpPos ) == myWorld -> getMapWorld() -> end() ) {
+// Check if place is free (with map)
+                valide = true;
+            }
+        }
+// 5
+        tmpPosX -= 1;
+        tmpPosY += 1;
+// Check if out of bounds
+        if ( tmpPosX < 20 && tmpPosX >= 0 && tmpPosY < 20 && tmpPosY >= 0 ) {
+            tmpPos = Position( tmpPosX, tmpPosY );
+            if ( myWorld -> getMapWorld() -> find( tmpPos ) == myWorld -> getMapWorld() -> end() ) {
+// Check if place is free (with map)
+                valide = true;
+            }
+        }
+// 6
+        tmpPosX -= 1;
+        tmpPosY -= 1;
+// Check if out of bounds
+        if ( tmpPosX < 20 && tmpPosX >= 0 && tmpPosY < 20 && tmpPosY >= 0 ) {
+            tmpPos = Position( tmpPosX, tmpPosY );
+            if ( myWorld -> getMapWorld() -> find( tmpPos ) == myWorld -> getMapWorld() -> end() ) {
+// Check if place is free (with map)
+                valide = true;
+            }
+        }
+    }
+
+    return direction;
 }
+
 
 void Mobile::MoveObject() {
 // Discover the objects arround the Mobile Element
-    discoverObject();
+    int direction = discoverObject();
 
     int tmpPosX, tmpPosY;
     Position tmpPos( 0, 0 );
@@ -37,7 +118,6 @@ void Mobile::MoveObject() {
   \_/
 
  */
-    int direction = 0;
     while ( valide == false && i < 10 ) {
 // Random direction (1-6)
         direction = rand() % 6  + 1;

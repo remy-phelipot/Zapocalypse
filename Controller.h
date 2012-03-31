@@ -29,6 +29,8 @@ class Controller {
         void Play();
 // Variable used to stop the thread/play turn loop
         bool playGame;
+// Return the GameDate in the World
+        int getGameDate();
 };
 
 #endif
