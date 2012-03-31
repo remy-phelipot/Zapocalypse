@@ -22,7 +22,8 @@ void Human::initHuman () {
     SetmoveRange( 1 );
     isChild = true;
 // Random life expectancy
-    lifeExpectancy = rand() % 75 + 1;
+    //lifeExpectancy = rand() % 75 + 1;?
+    lifeExpectancy = 75;
 
     isContaminated = false;
     incubation = 0;

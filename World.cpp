@@ -111,9 +111,9 @@ void World::PlayTurn () {
 // Delete elements if healt <= 0 or age = lifeExpectancy
         if ( at( i ) -> getType() == humanMType || at( i ) -> getType() == humanWType ) {
             cout << "Human " << dynamic_cast<Human*>(at(i))->getAge() << endl;
-            /*if ( static_cast<Human*>(at(i)).getAge()==static_cast<Human*>(at(i))->getLifeExpectancy() || static_cast<Human*>(at(i))->getHealt()<=0 ) {
+            if ( dynamic_cast<Human*>(at(i))->getAge()==dynamic_cast<Human*>(at(i))->getLifeExpectancy() || dynamic_cast<Human*>(at(i))->getHealt()<=0 ) {
                 deleteElement( i );
-            }*/
+            }
         }
     }
     GameDate++;
