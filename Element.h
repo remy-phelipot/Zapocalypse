@@ -8,11 +8,12 @@ using namespace std;
 
 enum ItemType {
     hexagonType,
-    zombieType,
     humanMType,
     humanWType,
+    rabbitType,
     townType,
-    rabbitType
+    treeType,
+    zombieType
 };
 
 class Element {
@@ -24,8 +25,8 @@ class Element {
         void setMyPosition( int, int );
         void setImage( char );
         char getImage();
-        void setType ( ItemType );
-        ItemType getType ();
+        void setType( ItemType );
+        ItemType getType();
 
     private:
         Position myPosition;
