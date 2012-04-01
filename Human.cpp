@@ -46,7 +46,7 @@ void Human::initHuman () {
 
 
 bool Human::Action() {
-    cout << "Human basic action, moving..." << endl;
+    cout << "Human basic action, moving... healt : " << health << endl;
     MoveObject();
 
 // Human eats food
@@ -54,7 +54,7 @@ bool Human::Action() {
 // Human uses wood
     getMyWorld() -> useWood( dailyWoodConsumption );
 // Starvation
-    if ( getMyWorld() -> getFood() < dailyFoodConsumption ) {
+    if ( getMyWorld() -> getFood() <= dailyFoodConsumption ) {
         health -= 10;
     }
 

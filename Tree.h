@@ -5,8 +5,8 @@
 #include "World.h"
 
 #define TREE_IMAGE 'T'
-#define TREE_DEFAULT_FOOD 5
-#define TREE_DEFAULT_WOOD 30
+#define TREE_DEFAULT_FOOD 50
+#define TREE_DEFAULT_WOOD 200
 
 class Tree : public Resource {
     public:

@@ -55,3 +55,7 @@ void Controller::Play( ) {
 int Controller::getGameDate() {
     return this -> myWorld -> getGameDate();
 }
+
+int Controller::getHumanNumber() {
+    return this -> myWorld -> getHumanNumber();
+}

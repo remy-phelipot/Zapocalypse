@@ -122,6 +122,7 @@ void World::PlayTurn () {
     }
 
     GameDate++;
+    cout << endl << "Date : " << GameDate << " HumanNumber : " << humanNumber << " FoodQuantity : " << foodQuantity << endl;
 }
 
 void World::deleteElement ( int pIndex ) {
@@ -170,4 +171,8 @@ int World::getWoodThreshold() {
 
 int World::getGameDate() {
     return GameDate;
+}
+
+int World::getHumanNumber() {
+    return humanNumber;
 }

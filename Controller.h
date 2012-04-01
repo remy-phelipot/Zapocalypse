@@ -31,6 +31,8 @@ class Controller {
         bool playGame;
 // Return the GameDate in the World
         int getGameDate();
+// Return the number of human into the world
+        int getHumanNumber();
 };
 
 #endif

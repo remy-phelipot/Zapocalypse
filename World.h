@@ -25,10 +25,10 @@ using namespace std;
 #define TEST_TREE_NUMBER 3
 #define TEST_ZOMBIE_NUMBER 2
 
-#define TEST_FOOD_QUANTITY 200
+#define TEST_FOOD_QUANTITY 3000
 #define TEST_WOOD_QUANTITY 200
-#define TEST_FOOD_THRESHOLD 100
-#define TEST_WOOD_THRESHOLD 100
+#define TEST_FOOD_THRESHOLD 300
+#define TEST_WOOD_THRESHOLD 300
 
 class Zombie;
 
@@ -50,6 +50,8 @@ class World : public vector <Element*> {
 // Game informations
 // Date
         int getGameDate();
+// Human Number
+        int getHumanNumber();
 
     private:
         map <Position, unsigned> mapWorld;

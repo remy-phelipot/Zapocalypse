@@ -7,7 +7,7 @@
 #include "World.h"
 
 #define ANIMAL_IMAGE 'A'
-#define ANIMAL_DEFAULT_FOOD 10
+#define ANIMAL_DEFAULT_FOOD 100
 #define ANIMAL_DEFAULT_WOOD 0
 
 class Animal : public Mobile, private Resource {
