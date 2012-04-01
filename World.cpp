@@ -99,6 +99,7 @@ Position World::newCoordinates() {
             valide = true;
         }
     }
+
     cout << "New coordinates : x=" << valX  << " y=" << valY << endl;
 // Return the new Position
     return newPosition;
@@ -111,14 +112,45 @@ void World::PlayTurn () {
     for ( unsigned int i = 0 ; i <= ( size() - 1 ) ; i++ ) {
         at( i ) -> Action();
 
-        if ( at( i ) -> getType() == humanMType || at( i ) -> getType() == humanWType ) {
-            humanNumber++;
+        if ( i <= ( size() - 1 ) ) {
+            if ( at( i ) -> getType() == humanMType || at( i ) -> getType() == humanWType ) {
+                humanNumber++;
 // Delete elements if healt <= 0 or age = lifeExpectancy
-            cout << "Human " << dynamic_cast<Human*>(at(i))->getAge() << endl;
-            if ( dynamic_cast<Human*>(at(i))->getAge()==dynamic_cast<Human*>(at(i))->getLifeExpectancy() || dynamic_cast<Human*>(at(i))->getHealt()<=0 ) {
-                deleteElement( i );
+                cout << "Human " << dynamic_cast<Human*>(at(i))->getAge() << endl;
+                if ( dynamic_cast<Human*>(at(i))->getAge()==dynamic_cast<Human*>(at(i))->getLifeExpectancy() || dynamic_cast<Human*>(at(i))->getHealt()<=0 ) {
+                    deleteElement( i );
+                }
             }
         }
+    }
+
+// Create new elements
+    Position tmpPosition;
+    if ( GameDate % TEST_TOWN_FREQ == 0 ) {
+// Creates random coordinates for the new element
+        tmpPosition = newCoordinates();
+        Element *initTown = new Town( tmpPosition.GetposX(), tmpPosition.GetposY(), this );
+        push_back( initTown );
+// Add the new Position into the map
+        mapWorld[tmpPosition] = size() - 1;
+    }
+
+    if ( GameDate % TEST_TREE_FREQ == 0 ) {
+// Creates random coordinates for the new element
+        tmpPosition = newCoordinates();
+        Element *initTree = new Tree( tmpPosition.GetposX(), tmpPosition.GetposY(), this );
+        push_back( initTree );
+// Add the new Position into the map
+        mapWorld[tmpPosition] = size() - 1;
+    }
+
+    if ( GameDate % TEST_RABBIT_FREQ == 0 ) {
+// Creates random coordinates for the new element
+        tmpPosition = newCoordinates();
+        Element *initAnimal = new Animal( tmpPosition.GetposX(), tmpPosition.GetposY(), this );
+        push_back( initAnimal );
+// Add the new Position into the map
+        mapWorld[tmpPosition] = size() - 1;
     }
 
     GameDate++;
@@ -167,6 +199,14 @@ int World::getFoodThreshold() {
 
 int World::getWoodThreshold() {
     return woodThresholdAlert;
+}
+
+void World::addFood( int pFoodQuantity ) {
+    foodQuantity += pFoodQuantity;
+}
+
+void World::addWood( int pWoodQuantity ) {
+    woodQuantity += pWoodQuantity;
 }
 
 int World::getGameDate() {

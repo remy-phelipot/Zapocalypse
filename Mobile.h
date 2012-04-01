@@ -12,6 +12,7 @@
 using namespace std;
 
 #include "Element.h"
+#include "Resource.h"
 
 class World;
 
