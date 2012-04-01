@@ -5,8 +5,8 @@
 #include "World.h"
 
 #define TOWN_IMAGE 'C'
-#define TOWN_DEFAULT_FOOD 30
-#define TOWN_DEFAULT_WOOD 5
+#define TOWN_DEFAULT_FOOD 200
+#define TOWN_DEFAULT_WOOD 50
 
 class Town : public Resource {
     public:

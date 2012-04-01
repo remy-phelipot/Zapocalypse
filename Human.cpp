@@ -22,8 +22,7 @@ void Human::initHuman () {
     SetmoveRange( 1 );
     isChild = true;
 // Random life expectancy
-    //lifeExpectancy = rand() % 75 + 1;?
-    lifeExpectancy = 75;
+    lifeExpectancy = 50 + ( rand() % ( 75 - 50 ) );
 
     isContaminated = false;
     incubation = 0;
@@ -47,7 +46,7 @@ void Human::initHuman () {
 
 
 bool Human::Action() {
-    cout << "Human basic action, moving..." << endl;
+    cout << "Human basic action, moving... healt : " << health << endl;
     MoveObject();
 
 // Human eats food
@@ -55,12 +54,15 @@ bool Human::Action() {
 // Human uses wood
     getMyWorld() -> useWood( dailyWoodConsumption );
 // Starvation
-    if ( getMyWorld() -> getFood() < dailyFoodConsumption ) {
+    if ( getMyWorld() -> getFood() <= dailyFoodConsumption ) {
         health -= 10;
     }
+
 // Increase age
     age++;
-
+    if ( age == 15 ) {
+        isChild = false;
+    }
 // No problem
     return true;
 // If there is a problem, return false and delete the element (fail)

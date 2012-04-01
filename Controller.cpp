@@ -40,7 +40,17 @@ void Controller::Play( ) {
     threadWorld->start();
 }
 
+<<<<<<< HEAD
 void Controller::setPlayTurn(bool _b){
     threadWorld->setPlay(_b);
 }
 
+=======
+int Controller::getGameDate() {
+    return this -> myWorld -> getGameDate();
+}
+
+int Controller::getHumanNumber() {
+    return this -> myWorld -> getHumanNumber();
+}
+>>>>>>> bb29588a58a72b3ca3e626871e3be15c95207eea

@@ -20,7 +20,7 @@ class Mobile : public virtual Element {
 // Move the Mobile Element to the main point of interest
         void MoveObject();
 // Discover the object arround the Mobile Element (called by MoveObject)
-        void discoverObject();
+        int discoverObject();
         /** Default constructor */
         Mobile();
         Mobile( int, int, World *myWorld );
