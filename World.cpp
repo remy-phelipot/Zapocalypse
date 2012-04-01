@@ -169,6 +169,14 @@ int World::getWoodThreshold() {
     return woodThresholdAlert;
 }
 
+void World::addFood( int pFoodQuantity ) {
+    foodQuantity += pFoodQuantity;
+}
+
+void World::addWood( int pWoodQuantity ) {
+    woodQuantity += pWoodQuantity;
+}
+
 int World::getGameDate() {
     return GameDate;
 }

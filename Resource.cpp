@@ -10,3 +10,11 @@ Element( pPosX, pPosY ) {
     foodQuality = pFood;
     woodQuality = pWood;
 }
+
+int Resource::getFoodQuality() {
+    return foodQuality;
+}
+
+int Resource::getWoodQuality() {
+    return woodQuality;
+}

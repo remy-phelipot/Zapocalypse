@@ -26,7 +26,7 @@ int Mobile::discoverObject() {
 
 // 1
     tmpPos.SetposY( getMyPosition().GetposY() - 2 );
-    if ( getMyPosition().GetposX() < 20 && getMyPosition().GetposX() >= 0 && getMyPosition().GetposY() < 20 && getMyPosition().GetposY() >= 0 && myWorld->getMapWorld()->find(tmpPos) != myWorld->getMapWorld()->end() ) {
+    if ( getMyPosition().GetposX() < 20 && getMyPosition().GetposX() >= 0 && getMyPosition().GetposY() < 20 && getMyPosition().GetposY() >= 0 && myWorld->getMapWorld()->count(tmpPos) == 1 ) {
 // If its not free, save the vector index
         tabElements[ nbElements ] = myWorld->getMapWorld()->find(tmpPos)->second;
         cout << "Finds element : " << tabElements[ nbElements ] << endl;
@@ -36,7 +36,7 @@ int Mobile::discoverObject() {
 // 2
     tmpPos.SetposX( getMyPosition().GetposX() + 1 );
     tmpPos.SetposY( getMyPosition().GetposY() - 1 );
-    if ( getMyPosition().GetposX() < 20 && getMyPosition().GetposX() >= 0 && getMyPosition().GetposY() < 20 && getMyPosition().GetposY() >= 0 && myWorld->getMapWorld()->find(tmpPos) != myWorld->getMapWorld()->end() ) {
+    if ( getMyPosition().GetposX() < 20 && getMyPosition().GetposX() >= 0 && getMyPosition().GetposY() < 20 && getMyPosition().GetposY() >= 0 && myWorld->getMapWorld()->count(tmpPos) == 1 ) {
 // If its not free, save the vector index
         tabElements[ nbElements ] = myWorld->getMapWorld()->find(tmpPos)->second;
         cout << "Finds element : " << tabElements[ nbElements ] << endl;
@@ -46,7 +46,7 @@ int Mobile::discoverObject() {
 // 3
     tmpPos.SetposX( getMyPosition().GetposX() + 1 );
     tmpPos.SetposY( getMyPosition().GetposY() + 1 );
-    if ( getMyPosition().GetposX() < 20 && getMyPosition().GetposX() >= 0 && getMyPosition().GetposY() < 20 && getMyPosition().GetposY() >= 0 && myWorld->getMapWorld()->find(tmpPos) != myWorld->getMapWorld()->end() ) {
+    if ( getMyPosition().GetposX() < 20 && getMyPosition().GetposX() >= 0 && getMyPosition().GetposY() < 20 && getMyPosition().GetposY() >= 0 && myWorld->getMapWorld()->count(tmpPos) == 1 ) {
 // If its not free, save the vector index
         tabElements[ nbElements ] = myWorld->getMapWorld()->find(tmpPos)->second;
         cout << "Finds element : " << tabElements[ nbElements ] << endl;
@@ -56,7 +56,7 @@ int Mobile::discoverObject() {
 // 4
     tmpPos.SetposX( getMyPosition().GetposX() + 0 );
     tmpPos.SetposY( getMyPosition().GetposY() + 2 );
-    if ( getMyPosition().GetposX() < 20 && getMyPosition().GetposX() >= 0 && getMyPosition().GetposY() < 20 && getMyPosition().GetposY() >= 0 && myWorld->getMapWorld()->find(tmpPos) != myWorld->getMapWorld()->end() ) {
+    if ( getMyPosition().GetposX() < 20 && getMyPosition().GetposX() >= 0 && getMyPosition().GetposY() < 20 && getMyPosition().GetposY() >= 0 && myWorld->getMapWorld()->count(tmpPos) == 1 ) {
 // If its not free, save the vector index
         tabElements[ nbElements ] = myWorld->getMapWorld()->find(tmpPos)->second;
         cout << "Finds element : " << tabElements[ nbElements ] << endl;
@@ -66,7 +66,7 @@ int Mobile::discoverObject() {
 // 5
     tmpPos.SetposX( getMyPosition().GetposX() - 1 );
     tmpPos.SetposY( getMyPosition().GetposY() + 1 );
-    if ( getMyPosition().GetposX() < 20 && getMyPosition().GetposX() >= 0 && getMyPosition().GetposY() < 20 && getMyPosition().GetposY() >= 0 && myWorld->getMapWorld()->find(tmpPos) != myWorld->getMapWorld()->end() ) {
+    if ( getMyPosition().GetposX() < 20 && getMyPosition().GetposX() >= 0 && getMyPosition().GetposY() < 20 && getMyPosition().GetposY() >= 0 && myWorld->getMapWorld()->count(tmpPos) == 1 ) {
 // If its not free, save the vector index
         tabElements[ nbElements ] = myWorld->getMapWorld()->find(tmpPos)->second;
         cout << "Finds element : " << tabElements[ nbElements ] << endl;
@@ -76,7 +76,7 @@ int Mobile::discoverObject() {
 // 6
     tmpPos.SetposX( getMyPosition().GetposX() - 1 );
     tmpPos.SetposY( getMyPosition().GetposY() - 1 );
-    if ( getMyPosition().GetposX() < 20 && getMyPosition().GetposX() >= 0 && getMyPosition().GetposY() < 20 && getMyPosition().GetposY() >= 0 && myWorld->getMapWorld()->find(tmpPos) != myWorld->getMapWorld()->end() ) {
+    if ( getMyPosition().GetposX() < 20 && getMyPosition().GetposX() >= 0 && getMyPosition().GetposY() < 20 && getMyPosition().GetposY() >= 0 && myWorld->getMapWorld()->count(tmpPos) == 1 ) {
 // If its not free, save the vector index
         tabElements[ nbElements ] = myWorld->getMapWorld()->find(tmpPos)->second;
         cout << "Finds element : " << tabElements[ nbElements ] << endl;
@@ -102,6 +102,18 @@ int Mobile::discoverObject() {
                     myWorld -> getMapWorld() -> insert( pair<Position, unsigned>(tmpPos, myWorld -> size() - 1) );
                     direction++;
                 }
+                else if ( myWorld->at( tabElements[ i ] )->getType() == rabbitType || myWorld->at( tabElements[ i ] )->getType() == townType ) {
+// Take resource and delete element
+                    cout << "Town or Rabbit..." << endl;
+                    Element *element1 = myWorld->at( tabElements[i] );
+                    Resource *resource1 = dynamic_cast<Resource*>(element1);
+// Set wood and food
+                    myWorld->addFood( resource1->getFoodQuality() );
+                    myWorld->addWood( resource1->getWoodQuality() );
+// Delete element
+                    myWorld->deleteElement( tabElements[i] );
+                    direction++;
+                }
             }
             break;
 
@@ -121,11 +133,20 @@ int Mobile::discoverObject() {
                     myWorld -> getMapWorld() -> insert( pair<Position, unsigned>(tmpPos, myWorld -> size() - 1) );
                     direction++;
                 }
+                else if ( myWorld->at( tabElements[ i ] )->getType() == rabbitType || myWorld->at( tabElements[ i ] )->getType() == townType ) {
+// Take resource and delete element
+                    cout << "Town or Rabbit..." << endl;
+                    Element *element1 = myWorld->at( tabElements[i] );
+                    Resource *resource1 = dynamic_cast<Resource*>(element1);
+// Set wood and food
+                    myWorld->addFood( resource1->getFoodQuality() );
+                    myWorld->addWood( resource1->getWoodQuality() );
+// Delete element
+                    myWorld->deleteElement( tabElements[i] );
+                    direction++;
+                }
             }
             break;
-
-        /*case rabbitType:
-            break;*/
 
         default:
             cout << "Other..." << endl;

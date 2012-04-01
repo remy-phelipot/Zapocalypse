@@ -45,6 +45,8 @@ class World : public vector <Element*> {
         int getWood();
         int getFoodThreshold();
         int getWoodThreshold();
+        void addFood( int );
+        void addWood( int );
 // Delete an element
         void deleteElement( int );
 // Game informations
