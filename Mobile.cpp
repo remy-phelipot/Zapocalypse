@@ -104,7 +104,17 @@ int Mobile::discoverObject() {
                 }
                 else if ( myWorld->at( tabElements[ i ] )->getType() == rabbitType || myWorld->at( tabElements[ i ] )->getType() == townType ) {
 // Take resource and delete element
-                    cout << "Town or Rabbit..." << endl;
+                    Element *element1 = myWorld->at( tabElements[i] );
+                    Resource *resource1 = dynamic_cast<Resource*>(element1);
+// Set wood and food
+                    myWorld->addFood( resource1->getFoodQuality() );
+                    myWorld->addWood( resource1->getWoodQuality() );
+// Delete element
+                    myWorld->deleteElement( tabElements[i] );
+                    direction++;
+                }
+                else if ( myWorld->at( tabElements[ i ] )->getType() == treeType ) {
+// Take resource and delete element
                     Element *element1 = myWorld->at( tabElements[i] );
                     Resource *resource1 = dynamic_cast<Resource*>(element1);
 // Set wood and food
@@ -135,7 +145,17 @@ int Mobile::discoverObject() {
                 }
                 else if ( myWorld->at( tabElements[ i ] )->getType() == rabbitType || myWorld->at( tabElements[ i ] )->getType() == townType ) {
 // Take resource and delete element
-                    cout << "Town or Rabbit..." << endl;
+                    Element *element1 = myWorld->at( tabElements[i] );
+                    Resource *resource1 = dynamic_cast<Resource*>(element1);
+// Set wood and food
+                    myWorld->addFood( resource1->getFoodQuality() );
+                    myWorld->addWood( resource1->getWoodQuality() );
+// Delete element
+                    myWorld->deleteElement( tabElements[i] );
+                    direction++;
+                }
+                else if ( myWorld->at( tabElements[ i ] )->getType() == treeType ) {
+// Take resource and delete element
                     Element *element1 = myWorld->at( tabElements[i] );
                     Resource *resource1 = dynamic_cast<Resource*>(element1);
 // Set wood and food
@@ -149,7 +169,6 @@ int Mobile::discoverObject() {
             break;
 
         default:
-            cout << "Other..." << endl;
             break;
     }
     return direction;

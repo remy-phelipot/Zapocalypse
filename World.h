@@ -25,10 +25,14 @@ using namespace std;
 #define TEST_TREE_NUMBER 3
 #define TEST_ZOMBIE_NUMBER 2
 
-#define TEST_FOOD_QUANTITY 3000
+#define TEST_FOOD_QUANTITY 1000
 #define TEST_WOOD_QUANTITY 200
 #define TEST_FOOD_THRESHOLD 300
 #define TEST_WOOD_THRESHOLD 300
+
+#define TEST_TOWN_FREQ 3
+#define TEST_TREE_FREQ 7
+#define TEST_RABBIT_FREQ 3
 
 class Zombie;
 
