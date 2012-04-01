@@ -29,17 +29,15 @@ class Controller {
         void InitialiseWorld( int, int );
 // Play the game until stopped
         void Play();
-<<<<<<< HEAD
+  void setPlayTurn(bool);
 
-        void setPlayTurn(bool);
-=======
 // Variable used to stop the thread/play turn loop
         bool playGame;
 // Return the GameDate in the World
         int getGameDate();
 // Return the number of human into the world
         int getHumanNumber();
->>>>>>> bb29588a58a72b3ca3e626871e3be15c95207eea
+
 };
 
 #endif

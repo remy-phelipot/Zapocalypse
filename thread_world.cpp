@@ -19,13 +19,15 @@ void Thread_World::run(){
 
     while(playTurn){
         window->mutex.lock();
-        if (window->refreshing == true)
-            window->isNotReady.wait(&(window->mutex));
-        this->msleep(50);
 
+        this->msleep(50);
+        if (ctrl->getHumanNumber() > 0){
         world -> PlayTurn();
         window->refreshing = true;
+        }
         emit refreshMap (world);
+        if (window->refreshing == true)
+            window->isNotReady.wait(&(window->mutex));
         window->mutex.unlock();
     }
 }

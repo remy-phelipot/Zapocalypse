@@ -149,6 +149,8 @@ void Main_Window::stopSimulation(){
 
 void Main_Window::printAtPosition(vector<Element*> * _v){
     int valX,valY;
+
+    if (ctrl->getHumanNumber() > 0){
     mutex.lock();
 
     area->clearAll();
@@ -160,13 +162,26 @@ void Main_Window::printAtPosition(vector<Element*> * _v){
         area->addItem( valX, valY,(*it)->getType());
     }
 
-    days->setText(" days");
+    QString day =  QString::number(ctrl->getGameDate()) + " days";
+    days->setText(day);
 
 
 
     refreshing = false;
     isNotReady.wakeAll();
     mutex.unlock();
+    }else{
+        QMessageBox::information(this,"End","All humans died. Number of days : "+QString::number(ctrl->getGameDate() -1));
+        stopSimulation();
+
+        mutex.lock();
+        isNotReady.wakeAll();
+        mutex.unlock();
+        area->clearAll();
+        area->repaint();
+        ctrl->InitialiseWorld(20,20);
+
+    }
 }
 
 }
