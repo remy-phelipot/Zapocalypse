@@ -13,8 +13,8 @@ SOURCES += \
     Element.cpp \
     Controller.cpp \
     Animal.cpp \
-    thread_world.cpp
-
+    thread_world.cpp \
+    Tree.cpp
 HEADERS += \
     world_map_area.h \
     main_window.h \
@@ -29,5 +29,5 @@ HEADERS += \
     Element.h \
     Controller.h \
     Animal.h \
-    thread_world.h
-
+    thread_world.h \
+    Tree.h
