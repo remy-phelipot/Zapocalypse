@@ -15,6 +15,7 @@
 #include "Element.h"
 #include <QMutex>
 #include <QWaitCondition>
+#include <QLineEdit>
 class Controller;
 
 
@@ -45,7 +46,9 @@ private:
 
     QWidget *centralWidget;
 
+    QLineEdit *days;
     QTextEdit *textarea;
+
     QPushButton *start;
     QPushButton *stop;
 

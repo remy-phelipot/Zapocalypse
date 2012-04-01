@@ -19,6 +19,7 @@ Main_Window::Main_Window(Controller * _ctrl) :
     QHBoxLayout *hlayout = new QHBoxLayout();
     QVBoxLayout *boutons= new QVBoxLayout();
 
+    days = new QLineEdit();
     textarea = new QTextEdit();
     centralWidget = new QWidget;
     start = new QPushButton("Start");
@@ -27,7 +28,13 @@ Main_Window::Main_Window(Controller * _ctrl) :
 
     area->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
 
+    days->setEnabled(false);
     textarea->setEnabled(false);
+
+    days->setMaximumWidth(100);
+    days->setAlignment(Qt::AlignRight);
+    days->setText("0 days");
+
 
     layout->addWidget(area,0,Qt::AlignTop);
     layout->addLayout(hlayout);
@@ -35,6 +42,7 @@ Main_Window::Main_Window(Controller * _ctrl) :
     hlayout->addWidget(textarea);
     hlayout->addLayout(boutons,0);
 
+    boutons->addWidget(days);
     boutons->addWidget(start);
     boutons->addWidget(stop);
 
@@ -151,6 +159,11 @@ void Main_Window::printAtPosition(vector<Element*> * _v){
         cout<<valX<<valY;
         area->addItem( valX, valY,(*it)->getType());
     }
+
+    days->setText(" days");
+
+
+
     refreshing = false;
     isNotReady.wakeAll();
     mutex.unlock();
