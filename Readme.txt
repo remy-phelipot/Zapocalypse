@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-Master branch of Zapocalypse.
-Merge here gui and application branches.
-=======
-Launch with arguments :
-progName nbHexagonX nbHexagonY
->>>>>>> mergeguiapplication
+Zapocalypse Qt graphical application.
+Application and GUI branches are merged here.
+Preference window isn't working in this version.
