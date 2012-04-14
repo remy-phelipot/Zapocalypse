@@ -158,7 +158,6 @@ void Main_Window::printAtPosition(vector<Element*> * _v){
     for ( vector<Element*>::iterator it =  _v -> begin() ; it !=  _v -> end() ; ++it ) {
         valX = (*it) -> getMyPosition().GetposX();
         valY = (*it) -> getMyPosition().GetposY();
-        cout<<valX<<valY;
         area->addItem( valX, valY,(*it)->getType());
     }
 
